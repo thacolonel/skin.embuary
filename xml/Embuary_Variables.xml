@@ -229,7 +229,7 @@
 		<value>DefaultMusic.png</value>
 	</variable>
 	<variable name="MainMenuFallbackIcon">
-		<value condition="String.Contains(ListItem.Property(defaultID),embuary_emby) | String.Contains(ListItem.Property(list),plugin.video.emby)">DefaultEmby.png</value>
+		<value condition="String.Contains(ListItem.Property(defaultID),embuary_emby) | String.Contains(ListItem.Property(list),plugin.video.emby-next-gen)">DefaultEmby.png</value>
 		<value condition="String.Contains(ListItem.Property(list),library://video) | String.Contains(ListItem.Property(list),videodb://)">DefaultVideo.png</value>
 		<value condition="String.Contains(ListItem.Property(list),library://music) | String.Contains(ListItem.Property(list),musicdb://)">DefaultMusic.png</value>
 		<value condition="String.Contains(ListItem.Property(path),RunAddOn) | String.Contains(ListItem.Property(path),RunScript) | String.Contains(ListItem.Property(list),addons://)">DefaultAddon.png</value>
@@ -381,7 +381,7 @@
 		<value condition="System.HasAddon(plugin.video.embycon)">plugin://plugin.video.embycon/?media_type=tvshows&amp;mode=GET_CONTENT&amp;use_cache=false&amp;url=%7bserver%7d%2femby%2fUsers%2f%7buserid%7d%2fItems%3fFields%3d%7bfield_filters%7d%26Recursive%3dtrue%26Filters%3dIsFavorite%26IncludeItemTypes%3dSeries%26ImageTypeLimit%3d1%26format%3djson&amp;reload=$INFO[Window(home).Property(plugin.video.embycon-embycon_widget_reload)]$INFO[Window(home).Property(EmbuaryWidgetUpdate)]</value>
 	</variable>
 	<variable name="Emby.FavEpisodes">
-		<value condition="System.HasAddon(plugin.video.emby)">plugin://plugin.video.emby/?folder=FavEpisodes&amp;type=episodes&amp;mode=browse&amp;reload=$INFO[Window(home).Property(EmbuaryWidgetUpdate)]</value>
+		<value condition="System.HasAddon(plugin.video.emby-next-gen)">plugin://plugin.video.emby/?folder=FavEpisodes&amp;type=episodes&amp;mode=browse&amp;reload=$INFO[Window(home).Property(EmbuaryWidgetUpdate)]</value>
 	</variable>
 	<variable name="EmbyCon.FavEpisodes">
 		<value condition="System.HasAddon(plugin.video.embycon)">plugin://plugin.video.embycon/?media_type=Episodes&amp;mode=GET_CONTENT&amp;use_cache=false&amp;url=%7Bserver%7D%2Femby%2FUsers%2F%7Buserid%7D%2FItems%3FSortBy%3DSortName%26amp%3BSortOrder%3DAscending%26amp%3BFilters%3DIsFavorite%26amp%3BRecursive%3Dtrue%26amp%3BFields%3DPrimaryImageAspectRatio%2CBasicSyncInfo%26amp%3BCollapseBoxSetItems%3Dfalse%26amp%3BExcludeLocationTypes%3DVirtual%26amp%3BEnableTotalRecordCount%3Dfalse%26amp%3BLimit%3D100%26amp%3BIncludeItemTypes%3DEpisode&amp;reload=$INFO[Window(home).Property(plugin.video.embycon-embycon_widget_reload)]$INFO[Window(home).Property(EmbuaryWidgetUpdate)]</value>
@@ -567,7 +567,7 @@
 		<value condition="Window.IsVisible(MyPVRRecordings.xml)">$LOCALIZE[19017]</value>
 		<value condition="Window.IsVisible(MyPVRSearch.xml)">$LOCALIZE[19142]</value>
 		<value condition="String.StartsWith(Container.Folderpath,androidapp://)">$LOCALIZE[20244]</value>
-		<value condition="!String.IsEmpty(Container.Foldername) + String.StartsWith(Container.Folderpath,plugin://) + !String.StartsWith(Container.Folderpath,plugin://plugin.video.emby)">$INFO[Container.Foldername]$INFO[Container.PluginCategory, - ]</value>
+		<value condition="!String.IsEmpty(Container.Foldername) + String.StartsWith(Container.Folderpath,plugin://) + !String.StartsWith(Container.Folderpath,plugin://plugin.video.emby-next-gen)">$INFO[Container.Foldername]$INFO[Container.PluginCategory, - ]</value>
 		<value condition="String.StartsWith(Container.Folderpath,videodb://movies/sets/)">$INFO[Container.Foldername]</value>
 		<value condition="Container.Content(sets)">$LOCALIZE[31169]</value>
 		<value condition="Container.Content(movies)">$LOCALIZE[342]</value>
@@ -1950,20 +1950,20 @@
 	<variable name="RottenIcon">
 		<!-- fresh -->
 		<value condition="Window.IsVisible(script-embuary-video.xml) + Integer.IsGreaterOrEqual(Container(10051).ListItem.Property(rating.rotten),60)">icons/rating/rotten_fresh.png</value>
-		<value condition="!Skin.HasSetting(DisableEmbyUserRating) + [System.HasAddon(plugin.video.emby) | String.StartsWith(ListItem.Path,plugin://plugin.video.embycon) | String.Contains(Player.Filenameandpath,/emby/)] + Integer.IsGreaterOrEqual(ListItem.UserRating,60)">icons/rating/rotten_fresh.png</value>
-		<value condition="!Skin.HasSetting(DisableEmbyUserRating) + [System.HasAddon(plugin.video.emby) | String.StartsWith(ListItem.Path,plugin://plugin.video.embycon) | String.Contains(Player.Filenameandpath,/emby/)] + Integer.IsGreaterOrEqual(VideoPlayer.UserRating,60)">icons/rating/rotten_fresh.png</value>
+		<value condition="!Skin.HasSetting(DisableEmbyUserRating) + [System.HasAddon(plugin.video.emby-next-gen) | String.StartsWith(ListItem.Path,plugin://plugin.video.embycon) | String.Contains(Player.Filenameandpath,/emby/)] + Integer.IsGreaterOrEqual(ListItem.UserRating,60)">icons/rating/rotten_fresh.png</value>
+		<value condition="!Skin.HasSetting(DisableEmbyUserRating) + [System.HasAddon(plugin.video.emby-next-gen) | String.StartsWith(ListItem.Path,plugin://plugin.video.embycon) | String.Contains(Player.Filenameandpath,/emby/)] + Integer.IsGreaterOrEqual(VideoPlayer.UserRating,60)">icons/rating/rotten_fresh.png</value>
 		<value condition="!String.IsEmpty(ListItem.Rating(tomatometerallcritics)) + Integer.IsGreaterOrEqual(ListItem.Rating(tomatometerallcritics),6)">icons/rating/rotten_fresh.png</value>
 		<value condition="!String.IsEmpty(Container(2003).ListItem.Rating(tomatometerallcritics)) + Integer.IsGreaterOrEqual(Container(2003).ListItem.Rating(tomatometerallcritics),6)">icons/rating/rotten_fresh.png</value>
 		<!-- rotten -->
 		<value condition="Window.IsVisible(script-embuary-video.xml) + !String.IsEmpty(Container(10051).ListItem.Property(rating.rotten))">icons/rating/rotten_rotten.png</value>
-		<value condition="!Skin.HasSetting(DisableEmbyUserRating) + [System.HasAddon(plugin.video.emby) | String.StartsWith(ListItem.Path,plugin://plugin.video.embycon) | String.Contains(Player.Filenameandpath,/emby/)] + !String.IsEmpty(ListItem.UserRating)">icons/rating/rotten_rotten.png</value>
-		<value condition="!Skin.HasSetting(DisableEmbyUserRating) + [System.HasAddon(plugin.video.emby) | String.StartsWith(ListItem.Path,plugin://plugin.video.embycon) | String.Contains(Player.Filenameandpath,/emby/)] + !String.IsEmpty(VideoPlayer.UserRating)">icons/rating/rotten_rotten.png</value>
+		<value condition="!Skin.HasSetting(DisableEmbyUserRating) + [System.HasAddon(plugin.video.emby-next-gen) | String.StartsWith(ListItem.Path,plugin://plugin.video.embycon) | String.Contains(Player.Filenameandpath,/emby/)] + !String.IsEmpty(ListItem.UserRating)">icons/rating/rotten_rotten.png</value>
+		<value condition="!Skin.HasSetting(DisableEmbyUserRating) + [System.HasAddon(plugin.video.emby-next-gen) | String.StartsWith(ListItem.Path,plugin://plugin.video.embycon) | String.Contains(Player.Filenameandpath,/emby/)] + !String.IsEmpty(VideoPlayer.UserRating)">icons/rating/rotten_rotten.png</value>
 		<value condition="!String.IsEmpty(ListItem.Rating(tomatometerallcritics)) + !String.IsEmpty(ListItem.Rating)">icons/rating/rotten_rotten.png</value>
 		<value condition="!String.IsEmpty(Container(2003).ListItem.Rating(tomatometerallcritics)) + !String.IsEmpty(Container(2003).ListItem.Rating(tomatometerallcritics))">icons/rating/rotten_rotten.png</value>
 	</variable>
 	<variable name="RottenRating">
-		<value condition="!Skin.HasSetting(DisableEmbyUserRating) + [System.HasAddon(plugin.video.emby) | String.StartsWith(ListItem.Path,plugin://plugin.video.embycon)] + !String.IsEmpty(ListItem.UserRating)">$INFO[ListItem.UserRating]</value>
-		<value condition="!Skin.HasSetting(DisableEmbyUserRating) + [System.HasAddon(plugin.video.emby) | String.Contains(Player.Filenameandpath,/emby/)] + !String.IsEmpty(VideoPlayer.UserRating)">$INFO[VideoPlayer.UserRating]</value>
+		<value condition="!Skin.HasSetting(DisableEmbyUserRating) + [System.HasAddon(plugin.video.emby-next-gen) | String.StartsWith(ListItem.Path,plugin://plugin.video.embycon)] + !String.IsEmpty(ListItem.UserRating)">$INFO[ListItem.UserRating]</value>
+		<value condition="!Skin.HasSetting(DisableEmbyUserRating) + [System.HasAddon(plugin.video.emby-next-gen) | String.Contains(Player.Filenameandpath,/emby/)] + !String.IsEmpty(VideoPlayer.UserRating)">$INFO[VideoPlayer.UserRating]</value>
 		<value condition="!String.IsEmpty(ListItem.Rating(tomatometerallcritics))">$INFO[ListItem.Rating(tomatometerallcritics)]</value>
 		<value condition="!String.IsEmpty(Container(2000).ListItem.Rating(tomatometerallcritics))">$INFO[Container(2000).ListItem.Rating(tomatometerallcritics)]</value>
 	</variable>

@@ -94,6 +94,13 @@
 								<property name="icon">&#xf9a9;</property>
 								<onclick>RunScript(script.embuary.helper,action=textviewer,header='$ESCINFO[Container(10051).ListItem.Label]',message='$ESCINFO[Container(10051).ListItem.Plot]')</onclick>
 							</item>
+							<item>
+								<visible>String.IsEmpty(Container(10051).ListItem.DBID) + !String.IsEqual(Container(10051).ListItem.Property(call),tv) +
+									System.HasAddon(script.module.hometinker)</visible>
+								<label>Add to Radarr</label>
+								<property name="icon">&#xF162;</property>
+								<onclick>RunScript(script.module.hometinker,tmdb,$INFO[Container(10051).ListItem.Property(id)])</onclick>
+							</item>
 						</content>
 					</control>
 					<!-- plot -->

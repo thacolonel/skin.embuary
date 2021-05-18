@@ -59,7 +59,7 @@
 			</include>
 			<!-- emby movies -->
 			<include content="PosterWidget">
-				<param name="visible" value="System.HasAddon(plugin.video.emby)"/>
+				<param name="visible" value="System.HasAddon(plugin.video.emby-next-gen)"/>
 				<param name="id" value="204"/>
 				<param name="onup" value="203"/>
 				<param name="ondown" value="205"/>
@@ -85,7 +85,7 @@
 			</include>
 			<!-- emby shows -->
 			<include content="PosterWidget">
-				<param name="visible" value="System.HasAddon(plugin.video.emby)"/>
+				<param name="visible" value="System.HasAddon(plugin.video.emby-next-gen)"/>
 				<param name="id" value="206"/>
 				<param name="onup" value="205"/>
 				<param name="ondown" value="207"/>
@@ -111,7 +111,7 @@
 			</include>
 			<!-- emby episodes -->
 			<include content="WideWidget">
-				<param name="visible" value="System.HasAddon(plugin.video.emby)"/>
+				<param name="visible" value="System.HasAddon(plugin.video.emby-next-gen)"/>
 				<param name="id" value="208"/>
 				<param name="onup" value="207"/>
 				<param name="ondown" value="209"/>

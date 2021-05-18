@@ -727,7 +727,7 @@
 			<onclick>Skin.ToggleSetting(DisableEmbyUserRating)</onclick>
 			<selected>!Skin.HasSetting(DisableEmbyUserRating)</selected>
 			<label>$LOCALIZE[31370]</label>
-			<enable>[System.HasAddon(plugin.video.emby) | System.HasAddon(plugin.video.embycon)]</enable>
+			<enable>[System.HasAddon(plugin.video.emby-next-gen) | System.HasAddon(plugin.video.embycon)]</enable>
 		</control>
 		<!-- PVR -->
 		<include content="SkinSettingsHeadlineLabel">

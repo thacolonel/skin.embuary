@@ -192,10 +192,10 @@
 	<include name="SettingAddons">
 		<content>
 			<item>
-				<label>$INFO[System.AddonTitle(plugin.video.emby)]</label>
+				<label>$INFO[System.AddonTitle(plugin.video.emby-next-gen)]</label>
 				<label2>&#xf6b3;</label2>
-				<onclick>Addon.OpenSettings(plugin.video.emby)</onclick>
-				<visible>System.HasAddon(plugin.video.emby)</visible>
+				<onclick>Addon.OpenSettings(plugin.video.emby-next-gen)</onclick>
+				<visible>System.HasAddon(plugin.video.emby-next-gen)</visible>
 			</item>
 			<item>
 				<label>$INFO[System.AddonTitle(plugin.video.embycon)]</label>
