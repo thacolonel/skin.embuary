@@ -57,7 +57,8 @@
 	<!-- Widget count -->
 	<variable name="PosterWidgetLimit">
 		<value condition="!String.IsEmpty(Skin.String(poster_widget_limit)) + !Integer.IsGreater(Skin.String(poster_widget_limit),25) + !Integer.IsEqual(Skin.String(poster_widget_limit),0)">$INFO[Skin.String(poster_widget_limit)]</value>
-		<value>25</value>
+		<value>500</value>
+<!--		<value>25</value>-->
 	</variable>
 	<variable name="SquareWidgetLimit">
 		<value condition="!String.IsEmpty(Skin.String(square_widget_limit)) + !Integer.IsGreater(Skin.String(square_widget_limit),25) + !Integer.IsEqual(Skin.String(square_widget_limit),0)">$INFO[Skin.String(square_widget_limit)]</value>
@@ -2088,6 +2089,33 @@
 		<value condition="String.IsEqual(Control.GetLabel(11),$LOCALIZE[15])">plugin://script.embuary.info/nextaired/3</value>
 		<value condition="String.IsEqual(Control.GetLabel(11),$LOCALIZE[16])">plugin://script.embuary.info/nextaired/4</value>
 		<value condition="String.IsEqual(Control.GetLabel(11),$LOCALIZE[17])">plugin://script.embuary.info/nextaired/5</value>
+	</variable>
+
+	<!-- Custom Added Variables -->
+	<variable name="AFI100_Content">
+		<value condition="String.StartsWith(ListItem.Path,plugin://plugin.video.embycon)">plugin://plugin.video.embycon/?mode=GET_CONTENT&amp;use_cache=false&amp;media_type=Movies&amp;url=%7Bserver%7D%2Femby%2FItems%2F$INFO[ListItem.Property(id)]%2FSimilar%3FuserId%3D%7Buserid%7D%26Limit%3D%7BItemLimit%7D%26format%3Djson%26ImageTypeLimit%3D1%26IsMissing%3DFalse%26Filters%3D%7Bfield_filters%7D</value>
+		<value condition="String.IsEqual(ListItem.DBType,movie) + Integer.IsGreater(ListItem.DBID,0)">plugin://script.embuary.helper/?info=getsimilar&amp;dbid=$INFO[ListItem.DBID]&amp;type=movie</value>
+		<value condition="String.IsEqual(ListItem.DBType,tvshow) + Integer.IsGreater(ListItem.DBID,0)">plugin://script.embuary.helper/?info=getsimilar&amp;dbid=$INFO[ListItem.DBID]&amp;type=tvshow</value>
+		<value>-</value>
+	</variable>
+	<variable name="Top250Icon">
+		<value condition="[System.HasAddon(plugin.video.emby) + !String.IsEmpty(ListItem.Top250) | String.StartsWith(ListItem.Path,plugin://plugin.video.embycon) | String.Contains(Player.Filenameandpath,/emby/)] + !String.IsEmpty(ListItem.Top250)">icons/rating/imdb250.png</value>
+	</variable>
+	<variable name="OscarIcon">
+		<value condition="[System.HasAddon(plugin.video.emby) + !String.IsEmpty(Container(2000).ListItem.Property(oscars)) | String.StartsWith(ListItem.Path,plugin://plugin.video.embycon) | String.Contains(Player.Filenameandpath,/emby/)] + !String.IsEmpty(Container(2000).ListItem.Property(oscars))">icons/awards/oscar.png</value>
+	</variable>
+	<variable name="OscarCount">
+		<value condition="!String.IsEmpty(Container(2000).ListItem.Property(oscars)) + [System.HasAddon(plugin.video.emby) | String.StartsWith(ListItem.Path,plugin://plugin.video.embycon)] + !String.IsEmpty(Container(2000).ListItem.Property(oscars))">$INFO[Container(2000).ListItem.Property(oscars)]</value>
+	</variable>
+	<variable name="OscarWinnersOnly">
+	  <value condition="!Skin.HasSetting(OscarWinnersOnly)">Winners Only</value>
+	  <value condition="Skin.HasSetting(OscarWinnersOnly)">All Nominees</value>
+ </variable>
+	<variable name="AFI_100Count">
+		<value condition="!String.IsEmpty(Container(2000).ListItem.Property(AFI_100)) + [System.HasAddon(plugin.video.emby) | String.StartsWith(ListItem.Path,plugin://plugin.video.embycon)] + !String.IsEmpty(Container(2000).ListItem.Property(AFI_100))">$INFO[Container(2000).ListItem.Property(AFI_100)]</value>
+	</variable>
+	<variable name="AFI_100Icon">
+		<value condition="[System.HasAddon(plugin.video.emby) + !String.IsEmpty(Container(2000).ListItem.Property(AFI_100)) | String.StartsWith(ListItem.Path,plugin://plugin.video.embycon) | String.Contains(Player.Filenameandpath,/emby/)] + !String.IsEmpty(Container(2000).ListItem.Property(AFI_100))">icons/awards/AFI_100.png</value>
 	</variable>
 
 </includes>
