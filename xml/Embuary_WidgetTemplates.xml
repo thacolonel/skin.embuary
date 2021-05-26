@@ -1539,4 +1539,33 @@
 		</include>
 	</include>
 
+	<!-- AFI movies -->
+	<include name="W_AFIMovies">
+		<include content="PosterWidget">
+			<param name="id" value="$PARAM[id]"/>
+			<param name="onup" value="$PARAM[onup]"/>
+			<param name="ondown" value="$PARAM[ondown]"/>
+			<param name="headline" value="AFI Top 100 Movies"/>
+			<param name="mainlabel" value="$INFO[ListItem.Title]"/>
+			<param name="sublabel" value="$INFO[ListItem.Year]"/>
+			<param name="widget_target" value="videos"/>
+			<param name="limit" value="$VAR[PosterWidgetLimit]"/>
+			<param name="content" value="plugin://script.embuary.helper/?info=getafi100&amp;type=movie&amp;tag=Movies&amp;reload=$INFO[Window(home).Property(EmbuaryWidgetUpdate)]"/>
+		</include>
+	</include>
+	<!-- Oscar movies -->
+	<include name="W_OscarBestPicture">
+		<include content="PosterWidget">
+			<param name="id" value="$PARAM[id]"/>
+			<param name="onup" value="$PARAM[onup]"/>
+			<param name="ondown" value="$PARAM[ondown]"/>
+			<param name="headline" value="Oscar Best Picture Winners"/>
+			<param name="mainlabel" value="$INFO[ListItem.Title]"/>
+			<param name="sublabel" value="$INFO[ListItem.Year]"/>
+			<param name="widget_target" value="videos"/>
+			<param name="limit" value="$VAR[PosterWidgetLimit]"/>
+			<param name="content" value="plugin://script.embuary.helper/?info=getoscars&amp;category=best_picture&amp;type=movie&amp;tag=Movies&amp;reload=$INFO[Window(home).Property(EmbuaryWidgetUpdate)]"/>
+		</include>
+	</include>
+
 </includes>

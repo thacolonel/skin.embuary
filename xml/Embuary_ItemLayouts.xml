@@ -291,7 +291,9 @@
 							<param name="id" value="$PARAM[id]"/>
 							<param name="visible_icon" value="$PARAM[visible_icon]"/>
 						</include>
-						<include>ListitemOverlay</include>
+						<include content="ListitemOverlay">
+							<param name="id" value="$PARAM[id]"/>
+						</include>
 					</control>
 					<include content="Progress">
 						<param name="top" value="351"/>
@@ -383,6 +385,7 @@
 							<param name="id" value="$PARAM[id]"/>
 							<param name="visible_icon" value="false"/>
 						</include>
+						<include>OscarCastOverlay</include>
 					</control>
 				</control>
 			</control>

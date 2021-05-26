@@ -79,34 +79,34 @@
 					<label>$INFO[ListItem.DateAdded,$LOCALIZE[31386]: ]   </label>
 					<visible>!String.IsEmpty(ListItem.DateAdded) + String.IsEqual(ListItem.DBType,tvshow)</visible>
 				</control>
-				<control type="button">
-					<animation effect="slide" end="0,-4" time="0" condition="true">Conditional</animation>
-					<width min="24">auto</width>
-					<height>32</height>
-					<font>MpaaFont</font>
-					<label>•  $INFO[ListItem.Tag]</label>
-					<textoffsetx>10</textoffsetx>
-					<align>center</align>
-					<disabledcolor>text_white</disabledcolor>
-					<texturefocus border="10" colordiffuse="grey_button">items/button.png</texturefocus>
-					<texturenofocus border="10" colordiffuse="grey_button">items/button.png</texturenofocus>
-					<enable>false</enable>
-					<visible>!String.IsEmpty(ListItem.Tag) + [String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow)]</visible>
-				</control>
-				<control type="button">
-					<animation effect="slide" end="0,-4" time="0" condition="true">Conditional</animation>
-					<width min="24">auto</width>
-					<height>32</height>
-					<font>MpaaFont</font>
-					<label>•  $INFO[Container(2000).ListItem.Tag]</label>
-					<textoffsetx>10</textoffsetx>
-					<align>center</align>
-					<disabledcolor>text_white</disabledcolor>
-					<texturefocus border="10" colordiffuse="grey_button">items/button.png</texturefocus>
-					<texturenofocus border="10" colordiffuse="grey_button">items/button.png</texturenofocus>
-					<enable>false</enable>
-					<visible>String.IsEmpty(ListItem.Tag) + !String.IsEmpty(Container(2000).ListItem.Tag) + [String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow)]</visible>
-				</control>
+<!--				<control type="button">-->
+<!--					<animation effect="slide" end="0,-4" time="0" condition="true">Conditional</animation>-->
+<!--					<width min="24">auto</width>-->
+<!--					<height>32</height>-->
+<!--					<font>MpaaFont</font>-->
+<!--					<label>•  $INFO[ListItem.Tag]</label>-->
+<!--					<textoffsetx>10</textoffsetx>-->
+<!--					<align>center</align>-->
+<!--					<disabledcolor>text_white</disabledcolor>-->
+<!--					<texturefocus border="10" colordiffuse="grey_button">items/button.png</texturefocus>-->
+<!--					<texturenofocus border="10" colordiffuse="grey_button">items/button.png</texturenofocus>-->
+<!--					<enable>false</enable>-->
+<!--					<visible>!String.IsEmpty(ListItem.Tag) + [String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow)]</visible>-->
+<!--				</control>-->
+<!--				<control type="button">-->
+<!--					<animation effect="slide" end="0,-4" time="0" condition="true">Conditional</animation>-->
+<!--					<width min="24">auto</width>-->
+<!--					<height>32</height>-->
+<!--					<font>MpaaFont</font>-->
+<!--					<label>•  $INFO[Container(2000).ListItem.Tag]</label>-->
+<!--					<textoffsetx>10</textoffsetx>-->
+<!--					<align>center</align>-->
+<!--					<disabledcolor>text_white</disabledcolor>-->
+<!--					<texturefocus border="10" colordiffuse="grey_button">items/button.png</texturefocus>-->
+<!--					<texturenofocus border="10" colordiffuse="grey_button">items/button.png</texturenofocus>-->
+<!--					<enable>false</enable>-->
+<!--					<visible>String.IsEmpty(ListItem.Tag) + !String.IsEmpty(Container(2000).ListItem.Tag) + [String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow)]</visible>-->
+<!--				</control>-->
 			</control>
 		</definition>
 	</include>
@@ -221,31 +221,43 @@
 	</include>
 	<!-- Movie -->
 	<include name="MetaMovieInfos">
-		<param name="width">1040</param>
+		<param name="width">1400</param>
+		<param name="top">-20</param>
 		<definition>
 			<control type="grouplist">
-				<height>40</height>
+				<usecontrolcoords>true</usecontrolcoords>
+				<height>80</height>
+				<top>$PARAM[top]</top>
 				<width>$PARAM[width]</width>
 				<itemgap>5</itemgap>
 				<orientation>horizontal</orientation>
 				<control type="label">
 					<label>$INFO[ListItem.Year]   </label>
-					<include>MetaLabel</include>
+					<include content="NewMetaLabel">
+						<param name="height" value="60"/>
+					</include>
 					<visible>!String.IsEmpty(ListItem.Year)</visible>
 				</control>
 				<control type="label">
 					<label>$VAR[DurationMinutes]   </label>
-					<include>MetaLabel</include>
+					<include content="NewMetaLabel">
+					    <param name="height" value="60"/>
+				    </include>
 					<visible>!String.IsEmpty(ListItem.Duration)</visible>
 				</control>
 				<include>MpaaIcon</include>
 				<include>CCIcon</include>
-				<include>MetaRating</include>
-				<control type="label">
-					<include>MetaLabel</include>
-					<label>$VAR[ListItemEndTime,$LOCALIZE[31037] ]</label>
-					<visible>!String.IsEmpty(ListItem.EndTimeResume) | !String.IsEmpty(ListItem.EndTimeResume)</visible>
-				</control>
+				<include content="MetaRating">
+					<param name="height" value="60"/>
+				</include>
+				<include>Imdb250</include>
+				<include>Oscars</include>
+				<include>AFI_100</include>
+<!--				<control type="label">-->
+<!--					<include>MetaLabel</include>-->
+<!--					<label>$VAR[ListItemEndTime,$LOCALIZE[31037] ]</label>-->
+<!--					<visible>!String.IsEmpty(ListItem.EndTimeResume) | !String.IsEmpty(ListItem.EndTimeResume)</visible>-->
+<!--				</control>-->
 			</control>
 		</definition>
 	</include>
@@ -1176,35 +1188,46 @@
 	<!-- common includes -->
 	<include name="MetaRating">
 		<param name="type">ListItem</param>
+		<param name="height">$PARAM[height]</param>
 		<definition>
+			<height>$PARAM[height]</height>
 			<control type="label">
 				<label>&#xf4ce;</label>
 				<font>Material26</font>
 				<textcolor>red</textcolor>
-				<include>MetaLabel</include>
+				<include content="NewMetaLabel">
+					<param name="height" value="$PARAM[height]"/>
+				</include>
 				<visible>!String.IsEmpty($PARAM[type].Rating)</visible>
 			</control>
 			<control type="label">
 				<label>$INFO[$PARAM[type].Rating]   </label>
-				<include>MetaLabel</include>
+				<include content="NewMetaLabel">
+					<param name="height" value="$PARAM[height]"/>
+				</include>
 				<visible>!String.IsEmpty($PARAM[type].Rating)</visible>
 			</control>
 			<control type="label">
 				<label>&#xf4ce;</label>
 				<font>Material26</font>
 				<textcolor>red</textcolor>
-				<include>MetaLabel</include>
+				<include content="NewMetaLabel">
+					<param name="height" value="$PARAM[height]"/>
+				</include>
 				<visible>String.IsEmpty($PARAM[type].Rating) + !String.IsEmpty(Container(2000).ListItem.Rating)</visible>
 			</control>
 			<control type="label">
 				<label>$INFO[Container(2000).ListItem.Rating]   </label>
-				<include>MetaLabel</include>
+				<include content="NewMetaLabel">
+					<param name="height" value="$PARAM[height]"/>
+				</include>
 				<visible>String.IsEmpty($PARAM[type].Rating) + !String.IsEmpty(Container(2000).ListItem.Rating)</visible>
 			</control>
 			<control type="image">
 				<animation effect="slide" end="0,2" time="0" condition="true">Conditional</animation>
+				<top>15</top>
 				<width>24</width>
-				<height>20</height>
+				<height>24</height>
 				<texture>$VAR[RottenIcon]</texture>
 				<aspectratio>keep</aspectratio>
 				<visible>
@@ -1217,7 +1240,9 @@
 			</control>
 			<control type="label">
 				<label>$VAR[RottenRating,,   ]</label>
-				<include>MetaLabel</include>
+				<include content="NewMetaLabel">
+					<param name="height" value="$PARAM[height]"/>
+				</include>
 				<visible>
 					[
 					[System.HasAddon(plugin.video.emby-next-gen) | System.HasAddon(plugin.video.embycon)] + !String.IsEmpty($PARAM[type].UserRating) + !Skin.HasSetting(DisableEmbyUserRating)
@@ -1234,6 +1259,7 @@
 			<control type="button">
 				<animation effect="slide" end="0,0" time="0" condition="true">Conditional</animation>
 				<width min="24">auto</width>
+				<top>20</top>
 				<height>24</height>
 				<font>MpaaFont</font>
 				<label>$INFO[$PARAM[type].Mpaa]</label>
@@ -1260,6 +1286,7 @@
 			<control type="button">
 				<animation effect="slide" end="0,-2" time="0" condition="true">Conditional</animation>
 				<width min="24">auto</width>
+				<top>20</top>
 				<height>28</height>
 				<font>MpaaFont</font>
 				<label>CC</label>
@@ -1449,4 +1476,94 @@
 			<visible>!ListItem.IsAutoUpdateable</visible>
 		</control>
 	</include>
+	<!-- Oscars includes -->
+	<include name="Oscars">
+		<param name="type">ListItem</param>
+		<definition>
+			<control type="image">
+				<animation effect="slide" end="0,2" time="0" condition="true">Conditional</animation>
+				<width>20</width>
+				<height>40</height>
+				<texture>$VAR[OscarIcon]</texture>
+				<aspectratio>keep</aspectratio>
+				<visible>
+					[
+					[System.HasAddon(plugin.video.emby-next-gen) | System.HasAddon(plugin.video.embycon)] + !String.IsEmpty(Container(2000).ListItem.Property(oscars))
+					]
+				</visible>
+			</control>
+			<control type="label">
+				<label>$VAR[OscarCount]   </label>
+				<include content="NewMetaLabel">
+					<param name="height" value="60"/>
+				</include>
+				<visible>
+					[
+					[System.HasAddon(plugin.video.emby-next-gen) | System.HasAddon(plugin.video.embycon)] + !String.IsEmpty(Container(2000).ListItem.Property(oscars))
+					]
+				</visible>
+			</control>
+		</definition>
+	</include>
+	<!-- AFI 100 includes -->
+	<include name="AFI_100">
+		<param name="type">ListItem</param>
+		<definition>
+			<control type="image">
+				<animation effect="slide" end="0,2" time="0" condition="true">Conditional</animation>
+				<top>-10</top>
+				<width>60</width>
+				<height>62</height>
+				<texture>$VAR[AFI_100Icon]</texture>
+				<aspectratio>keep</aspectratio>
+				<visible>
+					[
+					[System.HasAddon(plugin.video.emby-next-gen) | System.HasAddon(plugin.video.embycon)] + !String.IsEmpty(Container(2000).ListItem.Property(AFI_100))
+					]
+				</visible>
+			</control>
+			<control type="label">
+				<label>#$VAR[AFI_100Count]   </label>
+				<include content="NewMetaLabel">
+					<param name="height" value="60"/>
+				</include>
+				<visible>
+					[
+					[System.HasAddon(plugin.video.emby-next-gen) | System.HasAddon(plugin.video.embycon)] + !String.IsEmpty(Container(2000).ListItem.Property(AFI_100))
+					]
+				</visible>
+			</control>
+		</definition>
+	</include>
+	<!-- Imdb250 includes -->
+	<include name="Imdb250">
+		<param name="type">ListItem</param>
+		<definition>
+	    <control type="image">
+				<animation effect="slide" end="0,2" time="0" condition="true">Conditional</animation>
+				<width>40</width>
+				<height>60</height>
+				<top>-10</top>
+				<texture>$VAR[Top250Icon]</texture>
+				<aspectratio>keep</aspectratio>
+				<visible>
+					[
+					[System.HasAddon(plugin.video.emby-next-gen) | System.HasAddon(plugin.video.embycon)] + !String.IsEmpty(ListItem.Top250)
+					]
+				</visible>
+			</control>
+			<control type="label">
+				<label>#$INFO[ListItem.Top250]   </label>
+				<include content="NewMetaLabel">
+					<param name="height" value="60"/>
+				</include>
+				<visible>
+					[
+					[System.HasAddon(plugin.video.emby-next-gen) | System.HasAddon(plugin.video.embycon)] + !String.IsEmpty(ListItem.Top250)
+					]
+				</visible>
+			</control>
+		</definition>
+	</include>
+
 </includes>

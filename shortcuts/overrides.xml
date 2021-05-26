@@ -79,6 +79,12 @@
 		<action>AlarmClock(ClearForceFocusReset,ClearProperty(ForceFocusReset,home),00:01,silent)</action>
 		<action>ActivateWindow(1126,return)</action>
 	</override>
+	<override action="oscars">
+		<condition>Window.IsVisible(1120)</condition>
+		<action>SetProperty(ForceFocusReset,1,home)</action>
+		<action>AlarmClock(ClearForceFocusReset,ClearProperty(ForceFocusReset,home),00:01,silent)</action>
+		<action>ActivateWindow(1127,return)</action>
+	</override>
 
 	<!-- tag overrides -->
 	<override action="tag0">
@@ -492,6 +498,8 @@
 	<propertydefault defaultID="embuary_moviehub_movies" group="moviehub" property="isDefault">true</propertydefault>
 	<propertydefault defaultID="embuary_moviehub_embycon_movies" group="moviehub" property="isDefault">true</propertydefault>
 	<propertydefault defaultID="embuary_moviehub_collections" group="moviehub" property="isDefault">true</propertydefault>
+	<propertydefault defaultID="embuary_moviehub_recommended" group="moviehub" property="isDefault">true</propertydefault>
+	<propertydefault defaultID="embuary_moviehub_oscars" group="moviehub" property="isDefault">true</propertydefault>
 	<propertydefault defaultID="embuary_moviehub_unwatched" group="moviehub" property="isDefault">true</propertydefault>
 	<propertydefault defaultID="embuary_moviehub_genres" group="moviehub" property="isDefault">true</propertydefault>
 	<propertydefault defaultID="embuary_moviehub_library" group="moviehub" property="isDefault">true</propertydefault>

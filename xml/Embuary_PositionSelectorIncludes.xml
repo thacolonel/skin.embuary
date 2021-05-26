@@ -604,6 +604,19 @@
 			<param name="item" value="W_EmbyCon_RecommendedMovies"/>
 			<param name="visible" value="System.HasAddon(plugin.video.embycon)"/>
 		</include>
+		<!--	AFI Widget	-->
+		<include content="SetWidget">
+			<param name="type" value="moviehub"/>
+			<param name="label" value="AFI Top 100 Movies"/>
+			<param name="item" value="W_AFIMovies"/>
+		</include>
+		<!--	Oscar Widget	-->
+		<include content="SetWidget">
+			<param name="type" value="moviehub"/>
+			<param name="label" value="Oscar Best Picture Winners"/>
+			<param name="item" value="W_OscarBestPicture"/>
+		</include>
+
 		<include content="SetWidget">
 			<param name="type" value="moviehub"/>
 			<param name="label" value="$LOCALIZE[31018]"/>

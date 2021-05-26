@@ -1211,4 +1211,97 @@
 			</control>
 		</definition>
 	</include>
+
+	<!-- Oscar menu -->
+	<include name="OscarMenu">
+		<definition>
+			<control type="group" id="$PARAM[id]1">
+				<visible>$PARAM[visible]</visible>
+				<width>40%</width>
+				<height>239</height>
+				<include content="WidgetHeadline">
+					<param name="headline">$PARAM[headline]</param>
+					<param name="top">10</param>
+				</include>
+				<control type="fixedlist" id="$PARAM[id]">
+					<include>FocusBounce</include>
+					<top>28</top>
+					<width>100%</width>
+					<orientation>horizontal</orientation>
+					<preloaditems>4</preloaditems>
+					<movement>6</movement>
+					<ondown>$PARAM[ondown]</ondown>s
+					<onright>999</onright>
+					<onleft>900</onleft>
+					<onup>$PARAM[onup]</onup>
+					<include>ScrollTimeWidgets</include>
+					<itemlayout width="255">
+						<control type="group">
+							<left>70</left>
+							<top>64</top>
+							<include content="SmallMenuLayout">
+								<param name="mainlabel" value="$PARAM[mainlabel]" />
+								<param name="focused" value="false" />
+								<param name="id" value="$PARAM[id]" />
+							</include>
+						</control>
+					</itemlayout>
+					<focusedlayout width="255">
+						<include content="SetPropertyOnFocus">
+							<param name="id" value="$PARAM[id]"/>
+						</include>
+						<control type="group">
+							<left>70</left>
+							<top>64</top>
+							<include content="SmallMenuLayout">
+								<param name="mainlabel" value="$PARAM[mainlabel]" />
+								<param name="focused" value="true" />
+								<param name="id" value="$PARAM[id]" />
+							</include>
+						</control>
+					</focusedlayout>
+					<content>
+						<item>
+							<label>All Winners</label>
+							<onclick>ActivateWindow(Videos, plugin://script.embuary.helper/?info=getoscars&amp;category=all&amp;winner=yes&amp;type=movie&amp;tag=Movies&amp;reload=$INFO[Window(home).Property(EmbuaryWidgetUpdate)],return)</onclick>
+						</item>
+						<item>
+							<label>All Nominees</label>
+							<onclick>ActivateWindow(Videos, plugin://script.embuary.helper/?info=getoscars&amp;category=all&amp;winner=no&amp;type=movie&amp;tag=Movies&amp;reload=$INFO[Window(home).Property(EmbuaryWidgetUpdate)],return)</onclick>
+						</item>
+						<include content="$PARAM[content]">
+							<param name="nr" value="$PARAM[nr]"/>
+						</include>
+					</content>
+				</control>
+				<include content="ListMask">
+					<param name="height" value="56"/>
+					<param name="id" value="$PARAM[id]"/>
+				</include>
+			</control>
+			<control type="radiobutton" id="999">
+					<include>radio20_style</include>
+					<textoffsetx>20</textoffsetx>
+					<width>12%</width>
+					<height>56</height>
+					<onleft>$PARAM[id]</onleft>
+					<aligny>center</aligny>
+					<top>-65</top>
+					<left>600</left>
+					<align>left</align>
+					<font>Reg22</font>
+					<invalidcolor>invalid</invalidcolor>
+					<selectedcolor>$VAR[AccentColor]</selectedcolor>
+					<textcolor>text_white</textcolor>
+					<focusedcolor>text_white</focusedcolor>
+					<disabledcolor>disabled</disabledcolor>
+					<texturefocus colordiffuse="panel_focus">common/white.jpg</texturefocus>
+					<texturenofocus colordiffuse="panel_background">common/white.jpg</texturenofocus>
+					<label>Winners Only</label>
+<!--					<label>$VAR[OscarWinnersOnly]</label>-->
+					<selected>!Skin.HasSetting(OscarWinnersOnly)</selected>
+					<onclick>Skin.ToggleSetting(OscarWinnersOnly)</onclick>
+				</control>
+		</definition>
+	</include>
 </includes>

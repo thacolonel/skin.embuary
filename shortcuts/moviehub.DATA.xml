@@ -46,6 +46,15 @@
 		<visible>Library.HasContent(movies)</visible>
 	</shortcut>
 	<shortcut>
+		<defaultID>embuary_moviehub_oscars</defaultID>
+		<label>Oscars</label>
+		<label2/>
+		<icon/>
+		<thumb/>
+		<action>oscars</action>
+		<visible>Library.HasContent(movies)</visible>
+	</shortcut>
+	<shortcut>
 		<defaultID>embuary_moviehub_embycon_movies</defaultID>
 		<label>$LOCALIZE[31160]</label>
 		<label2/>

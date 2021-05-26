@@ -92,11 +92,17 @@
 								<onclick>RunScript(script.embuary.helper,action=textviewer,header='$ESCINFO[ListItem.Title]',message='$ESCINFO[ListItem.Plot]')</onclick>
 							</item>
 							<item>
-								<visible>System.HasAddon(plugin.video.youtube)</visible>
-								<label>YouTube</label>
-								<property name="icon">&#xf5c3;</property>
-								<onclick>RunScript(script.embuary.helper,action=goto,path='"plugin://plugin.video.youtube/kodion/search/query/?q=$INFO[ListItem.Title]&amp;search_type=videos"',target=videos)</onclick>
+								<visible>!String.IsEmpty(Container(2000).ListItem.Property(oscars))</visible>
+								<label>Oscars</label>
+								<property name="icon">&#xf538;</property>
+								<onclick condition="!String.IsEqual(ListItem.DBType,set)">RunScript(script.embuary.helper,action=oscarviewer,header='Academy Awards',imdbid='$INFO[ListItem.IMDBNumber]')</onclick>
 							</item>
+<!--							<item>-->
+<!--								<visible>System.HasAddon(plugin.video.youtube)</visible>-->
+<!--								<label>YouTube</label>-->
+<!--								<property name="icon">&#xf5c3;</property>-->
+<!--								<onclick>RunScript(script.embuary.helper,action=goto,path='"plugin://plugin.video.youtube/kodion/search/query/?q=$INFO[ListItem.Title]&amp;search_type=videos"',target=videos)</onclick>-->
+<!--							</item>-->
 							<item>
 								<visible>System.HasAddon(script.embuary.info)</visible>
 								<label>TMDb</label>

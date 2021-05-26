@@ -2099,23 +2099,23 @@
 		<value>-</value>
 	</variable>
 	<variable name="Top250Icon">
-		<value condition="[System.HasAddon(plugin.video.emby) + !String.IsEmpty(ListItem.Top250) | String.StartsWith(ListItem.Path,plugin://plugin.video.embycon) | String.Contains(Player.Filenameandpath,/emby/)] + !String.IsEmpty(ListItem.Top250)">icons/rating/imdb250.png</value>
+		<value condition="[System.HasAddon(plugin.video.emby-next-gen) + !String.IsEmpty(ListItem.Top250) | String.StartsWith(ListItem.Path,plugin://plugin.video.embycon) | String.Contains(Player.Filenameandpath,/emby/)] + !String.IsEmpty(ListItem.Top250)">icons/rating/imdb250.png</value>
 	</variable>
 	<variable name="OscarIcon">
-		<value condition="[System.HasAddon(plugin.video.emby) + !String.IsEmpty(Container(2000).ListItem.Property(oscars)) | String.StartsWith(ListItem.Path,plugin://plugin.video.embycon) | String.Contains(Player.Filenameandpath,/emby/)] + !String.IsEmpty(Container(2000).ListItem.Property(oscars))">icons/awards/oscar.png</value>
+		<value condition="[System.HasAddon(plugin.video.emby-next-gen) + !String.IsEmpty(Container(2000).ListItem.Property(oscars)) | String.StartsWith(ListItem.Path,plugin://plugin.video.embycon) | String.Contains(Player.Filenameandpath,/emby/)] + !String.IsEmpty(Container(2000).ListItem.Property(oscars))">icons/awards/oscar.png</value>
 	</variable>
 	<variable name="OscarCount">
-		<value condition="!String.IsEmpty(Container(2000).ListItem.Property(oscars)) + [System.HasAddon(plugin.video.emby) | String.StartsWith(ListItem.Path,plugin://plugin.video.embycon)] + !String.IsEmpty(Container(2000).ListItem.Property(oscars))">$INFO[Container(2000).ListItem.Property(oscars)]</value>
+		<value condition="!String.IsEmpty(Container(2000).ListItem.Property(oscars)) + [System.HasAddon(plugin.video.emby-next-gen) | String.StartsWith(ListItem.Path,plugin://plugin.video.embycon)] + !String.IsEmpty(Container(2000).ListItem.Property(oscars))">$INFO[Container(2000).ListItem.Property(oscars)]</value>
 	</variable>
 	<variable name="OscarWinnersOnly">
 	  <value condition="!Skin.HasSetting(OscarWinnersOnly)">Winners Only</value>
 	  <value condition="Skin.HasSetting(OscarWinnersOnly)">All Nominees</value>
  </variable>
 	<variable name="AFI_100Count">
-		<value condition="!String.IsEmpty(Container(2000).ListItem.Property(AFI_100)) + [System.HasAddon(plugin.video.emby) | String.StartsWith(ListItem.Path,plugin://plugin.video.embycon)] + !String.IsEmpty(Container(2000).ListItem.Property(AFI_100))">$INFO[Container(2000).ListItem.Property(AFI_100)]</value>
+		<value condition="!String.IsEmpty(Container(2000).ListItem.Property(AFI_100)) + [System.HasAddon(plugin.video.emby-next-gen) | String.StartsWith(ListItem.Path,plugin://plugin.video.embycon)] + !String.IsEmpty(Container(2000).ListItem.Property(AFI_100))">$INFO[Container(2000).ListItem.Property(AFI_100)]</value>
 	</variable>
 	<variable name="AFI_100Icon">
-		<value condition="[System.HasAddon(plugin.video.emby) + !String.IsEmpty(Container(2000).ListItem.Property(AFI_100)) | String.StartsWith(ListItem.Path,plugin://plugin.video.embycon) | String.Contains(Player.Filenameandpath,/emby/)] + !String.IsEmpty(Container(2000).ListItem.Property(AFI_100))">icons/awards/AFI_100.png</value>
+		<value condition="[System.HasAddon(plugin.video.emby-next-gen) + !String.IsEmpty(Container(2000).ListItem.Property(AFI_100)) | String.StartsWith(ListItem.Path,plugin://plugin.video.embycon) | String.Contains(Player.Filenameandpath,/emby/)] + !String.IsEmpty(Container(2000).ListItem.Property(AFI_100))">icons/awards/AFI_100.png</value>
 	</variable>
 
 </includes>

@@ -14,6 +14,7 @@
 				</include>
 				<include>ListItemOverlayHDR</include>
 				<include>ListItemOverlayTmbdbIsLocal</include>
+				<include>OscarOverlay</include>
 				<include>ListItemOverlayAddonStatus</include>
 			</control>
 		</definition>
@@ -449,9 +450,9 @@
 				<width>$PARAM[width]</width>
 				<height>$PARAM[height]</height>
 				<texturebg colordiffuse="$PARAM[bgcolor]" border="2">common/white.jpg</texturebg>
-				<lefttexture></lefttexture>
+				<lefttexture/>
 				<midtexture colordiffuse="$VAR[AccentColor]" border="2">common/white.jpg</midtexture>
-				<righttexture></righttexture>
+				<righttexture/>
 				<info>ListItem.Progress</info>
 				<visible>String.StartsWith(ListItem.Path,pvr://) + !String.StartsWith(ListItem.Path,pvr://recordings) + Integer.IsGreater(ListItem.Progress,0)</visible>
 			</control>
@@ -461,9 +462,9 @@
 				<width>$PARAM[width]</width>
 				<height>$PARAM[height]</height>
 				<texturebg colordiffuse="$PARAM[bgcolor]" border="2">common/white.jpg</texturebg>
-				<lefttexture></lefttexture>
+				<lefttexture/>
 				<midtexture colordiffuse="$VAR[AccentColor]" border="2">common/white.jpg</midtexture>
-				<righttexture></righttexture>
+				<righttexture/>
 				<info>ListItem.PercentPlayed</info>
 				<visible>[!String.StartsWith(ListItem.Path,pvr://) | String.StartsWith(ListItem.Path,pvr://recordings)] + Integer.IsGreater(ListItem.PercentPlayed,0)</visible>
 			</control>
@@ -482,9 +483,9 @@
 				<width>$PARAM[width]</width>
 				<height>$PARAM[height]</height>
 				<texturebg colordiffuse="cc515151" border="2">common/white.jpg</texturebg>
-				<lefttexture></lefttexture>
+				<lefttexture/>
 				<midtexture colordiffuse="$VAR[AccentColor]" border="2">common/white.jpg</midtexture>
-				<righttexture></righttexture>
+				<righttexture/>
 				<info>Player.Progress</info>
 				<visible>!VideoPlayer.HasEpg + Integer.IsGreater(Player.Progress,0)</visible>
 			</control>
@@ -494,12 +495,177 @@
 				<width>$PARAM[width]</width>
 				<height>$PARAM[height]</height>
 				<texturebg colordiffuse="cc515151" border="2">common/white.jpg</texturebg>
-				<lefttexture></lefttexture>
+				<lefttexture/>
 				<midtexture colordiffuse="$VAR[AccentColor]" border="2">common/white.jpg</midtexture>
-				<righttexture></righttexture>
+				<righttexture/>
 				<info>PVR.EpgEventProgress</info>
 				<visible>VideoPlayer.HasEpg + Integer.IsGreater(PVR.EpgEventProgress,0)</visible>
 			</control>
 		</definition>
 	</include>
+
+	<!-- Oscar overlay TMDB -->
+	<include name="OscarOverlayTMDB">
+		<param name="type">ListItem</param>
+		<definition>
+			<control type="group">
+				<visible>[Window.IsVisible(script-embuary-video.xml) | Window.IsVisible(script-embuary-person.xml) | String.Contains($PARAM[type].filenameandpath,script.embuary.info)] + !String.IsEmpty($PARAM[type].DBID) + !$EXP[IsWatched]</visible>
+				<control type="group">
+					<animation effect="slide" end="-48,0" time="0" condition="Integer.IsGreater($PARAM[type].Property(UnWatchedEpisodes),0) | Integer.IsGreaterOrEqual($PARAM[type].PlayCount,1)">Conditional</animation>
+					<left>8</left>
+					<top>9</top>
+					<width>44</width>
+					<height>44</height>
+					<control type="image">
+						<width>44</width>
+						<height>44</height>
+						<texture colordiffuse="thumb_background_fallback_secondary">items/bubble_small.png</texture>
+						<aspectratio>keep</aspectratio>
+					</control>
+					<control type="label">
+						<top>7</top>
+						<left>1</left>
+						<width>44</width>
+						<height>44</height>
+						<label>&#xf538;</label>
+						<font>Material24</font>
+						<textcolor>white</textcolor>
+						<shadowcolor>text_shadow</shadowcolor>
+						<selectedcolor>white</selectedcolor>
+						<align>center</align>
+						<aligny>top</aligny>
+					</control>
+				</control>
+			</control>
+			<control type="group">
+				<visible>[Window.IsVisible(script-embuary-video.xml) | Window.IsVisible(script-embuary-person.xml) | String.Contains($PARAM[type].filenameandpath,script.embuary.info)] + !String.IsEmpty($PARAM[type].DBID) + $EXP[IsWatched]</visible>
+				<control type="group">
+					<animation effect="slide" end="-48,0" time="0" condition="Integer.IsGreater($PARAM[type].Property(UnWatchedEpisodes),0) | Integer.IsGreaterOrEqual($PARAM[type].PlayCount,1)">Conditional</animation>
+					<left>56</left>
+					<top>9</top>
+					<width>44</width>
+					<height>44</height>
+					<control type="image">
+						<width>44</width>
+						<height>44</height>
+						<texture colordiffuse="thumb_background_fallback_secondary">items/bubble_small.png</texture>
+						<aspectratio>keep</aspectratio>
+					</control>
+					<control type="label">
+						<top>7</top>
+						<left>1</left>
+						<width>44</width>
+						<height>44</height>
+						<label>&#xf538;</label>
+						<font>Material24</font>
+						<textcolor>white</textcolor>
+						<shadowcolor>text_shadow</shadowcolor>
+						<selectedcolor>white</selectedcolor>
+						<align>center</align>
+						<aligny>top</aligny>
+					</control>
+				</control>
+			</control>
+		</definition>
+	</include>
+
+	<!-- Oscar overlay-->
+	<include name="OscarOverlay">
+		<definition>
+			<control type="group">
+				<visible>!String.IsEmpty(Container(2000).ListItem.Property(oscars))</visible>
+				<visible>![Window.IsVisible(script-embuary-video.xml) | Window.IsVisible(script-embuary-person.xml)]</visible>
+				<control type="group">
+					<left>8</left>
+					<top>9</top>
+					<width>44</width>
+					<height>44</height>
+					<control type="image">
+						<width>44</width>
+						<height>44</height>
+						<texture colordiffuse="black">items/bubble_small.png</texture>
+						<aspectratio>keep</aspectratio>
+					</control>
+					<control type="label">
+						<visible>[!Integer.IsGreater(Container(2000).ListItem.Property(oscar_wins),0) + !Window.IsVisible(Custom_1127_Oscars.xml)] | [!String.IsEmpty(Container(2000).ListItem.Property(oscar_category)) + String.IsEqual(Container(2000).ListItem.Property(oscar_winner),False) + Window.IsVisible(Custom_1127_Oscars.xml)]</visible>
+						<top>7</top>
+						<left>1</left>
+						<width>44</width>
+						<height>44</height>
+						<label>&#xf538;</label>
+						<font>Material24</font>
+						<textcolor>white</textcolor>
+						<shadowcolor>text_shadow</shadowcolor>
+						<selectedcolor>white</selectedcolor>
+						<align>center</align>
+						<aligny>top</aligny>
+					</control>
+					<control type="label">
+						<visible>[Integer.IsGreater(Container(2000).ListItem.Property(oscar_wins),0) + !Window.IsVisible(Custom_1127_Oscars.xml)] | [!String.IsEmpty(Container(2000).ListItem.Property(oscar_category)) + String.IsEqual(Container(2000).ListItem.Property(oscar_winner),True) + Window.IsVisible(Custom_1127_Oscars.xml)]</visible>
+						<top>7</top>
+						<left>1</left>
+						<width>44</width>
+						<height>44</height>
+						<label>&#xf538;</label>
+						<font>Material24</font>
+						<textcolor>gold</textcolor>
+						<shadowcolor>text_shadow</shadowcolor>
+						<selectedcolor>white</selectedcolor>
+						<align>center</align>
+						<aligny>top</aligny>
+					</control>
+				</control>
+			</control>
+		</definition>
+	</include>
+
+	<!-- Oscar Cast overlay-->
+	<include name="OscarCastOverlay">
+		<definition>
+			<control type="group">
+				<visible>!String.IsEmpty(ListItem.Property(oscar))</visible>
+				<control type="group">
+					<left>8</left>
+					<top>9</top>
+					<width>44</width>
+					<height>44</height>
+					<control type="image">
+						<width>44</width>
+						<height>44</height>
+						<texture colordiffuse="black">items/bubble_small.png</texture>
+						<aspectratio>keep</aspectratio>
+					</control>
+					<control type="label">
+						<visible>String.IsEqual(ListItem.Property(oscar),True)</visible>
+						<top>7</top>
+						<left>1</left>
+						<width>44</width>
+						<height>44</height>
+						<label>&#xf538;</label>
+						<font>Material24</font>
+						<textcolor>gold</textcolor>
+						<shadowcolor>text_shadow</shadowcolor>
+						<selectedcolor>gold</selectedcolor>
+						<align>center</align>
+						<aligny>top</aligny>
+					</control>
+					<control type="label">
+						<visible>String.IsEqual(ListItem.Property(oscar),False)</visible>
+						<top>7</top>
+						<left>1</left>
+						<width>44</width>
+						<height>44</height>
+						<label>&#xf538;</label>
+						<font>Material24</font>
+						<textcolor>white</textcolor>
+						<shadowcolor>text_shadow</shadowcolor>
+						<selectedcolor>white</selectedcolor>
+						<align>center</align>
+						<aligny>top</aligny>
+					</control>
+				</control>
+			</control>
+		</definition>
+	</include>
+
 </includes>

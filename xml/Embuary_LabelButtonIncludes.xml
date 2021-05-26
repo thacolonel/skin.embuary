@@ -329,4 +329,15 @@
 			<height>50</height>
 		</definition>
 	</include>
+	<!-- new meta labels -->
+	<include name="NewMetaLabel">
+		<param name="height">24</param>
+		<definition>
+			<aligny>center</aligny>
+			<width>auto</width>
+			<height>$PARAM[height]</height>
+			<font>Reg22</font>
+			<textcolor>text_white</textcolor>
+		</definition>
+	</include>
 </includes>
