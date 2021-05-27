@@ -122,6 +122,7 @@
 								</item>
 								<item>
 									<visible>!String.IsEmpty(ListItem.Plot) | !String.IsEmpty(Container(2001).ListItem.Label)</visible>
+									<visible>Container(2010).HasNext</visible>
 									<label>$LOCALIZE[207]</label>
 									<property name="icon">&#xf9a9;</property>
 									<onclick condition="!String.IsEqual(ListItem.DBType,set)">RunScript(script.embuary.helper,action=textviewer,header='$ESCINFO[ListItem.Title]',message='$ESCINFO[ListItem.Plot]')</onclick>
@@ -161,7 +162,7 @@
 							<include>MetaGenre</include>
 						</control>
 						<!-- plot -->
-						<control type="textbox">
+						<control type="textbox" id="2010">
 							<top>246</top>
 							<width>100%</width>
 							<height max="135">auto</height>
