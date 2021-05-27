@@ -1953,8 +1953,8 @@
 		<value condition="Window.IsVisible(script-embuary-video.xml) + Integer.IsGreaterOrEqual(Container(10051).ListItem.Property(rating.rotten),60)">icons/rating/rotten_fresh.png</value>
 		<value condition="!Skin.HasSetting(DisableEmbyUserRating) + [System.HasAddon(plugin.video.emby-next-gen) | String.StartsWith(ListItem.Path,plugin://plugin.video.embycon) | String.Contains(Player.Filenameandpath,/emby/)] + Integer.IsGreaterOrEqual(ListItem.UserRating,60)">icons/rating/rotten_fresh.png</value>
 		<value condition="!Skin.HasSetting(DisableEmbyUserRating) + [System.HasAddon(plugin.video.emby-next-gen) | String.StartsWith(ListItem.Path,plugin://plugin.video.embycon) | String.Contains(Player.Filenameandpath,/emby/)] + Integer.IsGreaterOrEqual(VideoPlayer.UserRating,60)">icons/rating/rotten_fresh.png</value>
-		<value condition="!String.IsEmpty(ListItem.Rating(tomatometerallcritics)) + Integer.IsGreaterOrEqual(ListItem.Rating(tomatometerallcritics),6)">icons/rating/rotten_fresh.png</value>
-		<value condition="!String.IsEmpty(Container(2003).ListItem.Rating(tomatometerallcritics)) + Integer.IsGreaterOrEqual(Container(2003).ListItem.Rating(tomatometerallcritics),6)">icons/rating/rotten_fresh.png</value>
+		<value condition="!String.IsEmpty(ListItem.Rating(tomatometerallcritics)) + Integer.IsGreaterOrEqual(ListItem.Rating(tomatometerallcritics),60)">icons/rating/rotten_fresh.png</value>
+		<value condition="!String.IsEmpty(Container(2003).ListItem.Rating(tomatometerallcritics)) + Integer.IsGreaterOrEqual(Container(2003).ListItem.Rating(tomatometerallcritics),60)">icons/rating/rotten_fresh.png</value>
 		<!-- rotten -->
 		<value condition="Window.IsVisible(script-embuary-video.xml) + !String.IsEmpty(Container(10051).ListItem.Property(rating.rotten))">icons/rating/rotten_rotten.png</value>
 		<value condition="!Skin.HasSetting(DisableEmbyUserRating) + [System.HasAddon(plugin.video.emby-next-gen) | String.StartsWith(ListItem.Path,plugin://plugin.video.embycon) | String.Contains(Player.Filenameandpath,/emby/)] + !String.IsEmpty(ListItem.UserRating)">icons/rating/rotten_rotten.png</value>

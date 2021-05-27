@@ -253,11 +253,6 @@
 				<include>Imdb250</include>
 				<include>Oscars</include>
 				<include>AFI_100</include>
-<!--				<control type="label">-->
-<!--					<include>MetaLabel</include>-->
-<!--					<label>$VAR[ListItemEndTime,$LOCALIZE[31037] ]</label>-->
-<!--					<visible>!String.IsEmpty(ListItem.EndTimeResume) | !String.IsEmpty(ListItem.EndTimeResume)</visible>-->
-<!--				</control>-->
 			</control>
 		</definition>
 	</include>
