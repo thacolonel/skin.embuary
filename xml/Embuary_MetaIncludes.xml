@@ -260,7 +260,9 @@
 					<visible>!String.IsEmpty(ListItem.Episode)</visible>
 				</control>
 				<include>MpaaIcon</include>
-				<include>MetaRating</include>
+				<include content="MetaRating">
+					<param name="height" value="20"/>
+				</include>
 			</control>
 		</definition>
 	</include>
@@ -283,7 +285,9 @@
 					<visible>!String.IsEmpty(ListItem.Property(TotalEpisodes))</visible>
 				</control>
 				<include>MpaaIcon</include>
-				<include>MetaRating</include>
+				<include content="MetaRating">
+					<param name="height" value="20"/>
+				</include>
 			</control>
 		</definition>
 	</include>
@@ -307,9 +311,13 @@
 				</control>
 				<include>MpaaIcon</include>
 				<include>CCIcon</include>
-				<include>MetaRating</include>
+				<include content="MetaRating">
+					<param name="height" value="20"/>
+				</include>
 				<control type="label">
-					<include>MetaLabel</include>
+					<include content="NewMetaLabel">
+					    <param name="height" value="20"/>
+				    </include>
 					<label>$VAR[ListItemEndTime,$LOCALIZE[31037] ]</label>
 					<visible>!String.IsEmpty(ListItem.EndTimeResume) | !String.IsEmpty(ListItem.EndTimeResume)</visible>
 				</control>
