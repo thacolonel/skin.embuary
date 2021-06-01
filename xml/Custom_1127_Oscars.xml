@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window id="1127">
+	<defaultcontrol always="true">10</defaultcontrol>
+	<menucontrol>6666</menucontrol>
+	<backgroundcolor>background</backgroundcolor>
+	<include content="PropertyIncludes">
+		<param name="ShowHeader" value="true"/>
+	</include>
+	<!-- force visibility to all on entering to trigger a refresh -->
+	<onload>SetProperty(EmbuaryForceWidgetUpdate,1,home)</onload>
+	<onload>AlarmClock(EmbuaryForceWidgetUpdate,ClearProperty(EmbuaryForceWidgetUpdate,home),00:01,silent)</onload>
+	<!-- force focus -->
+	<onload condition="!String.IsEmpty(Window(home).Property(ForceFocusReset))">Control.Move(100,$INFO[Container(100).CurrentItem,-])</onload>
+	<onload condition="!String.IsEmpty(Window(home).Property(ForceFocusReset))">Control.Move(100,1)</onload>
+	<onload condition="!String.IsEmpty(Window(home).Property(ForceFocusReset))">Control.Move(101,$INFO[Container(101).CurrentItem,-])</onload>
+	<onload condition="!String.IsEmpty(Window(home).Property(ForceFocusReset))">Control.Move(101,1)</onload>
+	<onload condition="!String.IsEmpty(Window(home).Property(ForceFocusReset))">Control.Move(102,$INFO[Container(102).CurrentItem,-])</onload>
+	<onload condition="!String.IsEmpty(Window(home).Property(ForceFocusReset))">Control.Move(102,1)</onload>
+	<onload condition="!String.IsEmpty(Window(home).Property(ForceFocusReset))">Control.Move(103,$INFO[Container(103).CurrentItem,-])</onload>
+	<onload condition="!String.IsEmpty(Window(home).Property(ForceFocusReset))">Control.Move(103,1)</onload>
+	<onload condition="!String.IsEmpty(Window(home).Property(ForceFocusReset))">Control.Move(104,$INFO[Container(104).CurrentItem,-])</onload>
+	<onload condition="!String.IsEmpty(Window(home).Property(ForceFocusReset))">Control.Move(104,1)</onload>
+	<onload condition="!String.IsEmpty(Window(home).Property(ForceFocusReset))">Control.Move(105,$INFO[Container(105).CurrentItem,-])</onload>
+	<onload condition="!String.IsEmpty(Window(home).Property(ForceFocusReset))">Control.Move(105,1)</onload>
+	<onload condition="!String.IsEmpty(Window(home).Property(ForceFocusReset)) + Integer.IsGreater(Container(100).NumItems,0)">SetFocus(100)</onload>
+	<onload condition="!String.IsEmpty(Window(home).Property(ForceFocusReset)) + !Integer.IsGreater(Container(100).NumItems,0) + Integer.IsGreater(Container(101).NumItems,0)">SetFocus(101)</onload>
+	<onload condition="!String.IsEmpty(Window(home).Property(ForceFocusReset)) + !Integer.IsGreater(Container(100).NumItems,0) + !Integer.IsGreater(Container(101).NumItems,0) + Integer.IsGreater(Container(102).NumItems,0)">SetFocus(102)</onload>
+	<controls>
+		<!-- background -->
+		<include>Background</include>
+		<!-- hub -->
+		<control type="grouplist" id="10">
+			<include>Window_OpenClose</include>
+			<width>100%</width>
+			<height>100%</height>
+			<itemgap>-80</itemgap>
+			<orientation>vertical</orientation>
+			<usecontrolcoords>true</usecontrolcoords>
+			<include>ScrollTime</include>
+			<pagecontrol>17</pagecontrol>
+			<ondown>noop</ondown>
+			<include content="WidgetSpacer">
+				<param name="id" value="11"/>
+			</include>
+			<include content="OscarMenu">
+				<param name="id" value="99"/>
+				<param name="onup" value="6666"/>
+				<param name="ondown" value="100"/>
+				<param name="headline" value="Academy Awards"/>
+			</include>
+			<include content="WidgetSpacer">
+				<param name="id" value="11"/>
+                <param name="height" value="160"/>
+			</include>
+			<control type="group">
+				<visible>!Container(100).IsUpdating + !Container(101).IsUpdating + !Container(102).IsUpdating + !Container(103).IsUpdating + !Container(104).IsUpdating + !Container(105).IsUpdating + !Container(106).IsUpdating + !Container(107).IsUpdating + !Container(108).IsUpdating + !Container(109).IsUpdating</visible>
+				<visible>Integer.IsLess(Container(100).NumItems,1) + Integer.IsLess(Container(101).NumItems,1) + Integer.IsLess(Container(102).NumItems,1) + Integer.IsLess(Container(103).NumItems,1) + Integer.IsLess(Container(104).NumItems,1) + Integer.IsLess(Container(105).NumItems,1) + Integer.IsLess(Container(106).NumItems,1) + Integer.IsLess(Container(107).NumItems,1) + Integer.IsLess(Container(108).NumItems,1) + Integer.IsLess(Container(109).NumItems,1)</visible>
+				<height>150</height>
+				<include content="WidgetHeadline">
+					<param name="headline">$LOCALIZE[31284]</param>
+				</include>
+			</control>
+			<include content="PosterWidget">
+				<param name="visible" value="!Skin.HasSetting(OscarWinnersOnly)"/>
+				<param name="id" value="100"/>
+				<param name="onup" value="99"/>
+				<param name="ondown" value="101"/>
+				<param name="headline" value="Best Picture Winners"/>
+				<param name="mainlabel" value="$INFO[ListItem.Title]"/>
+				<param name="sublabel" value="$INFO[ListItem.Year]"/>
+				<param name="widget_target" value="videos"/>
+				<param name="limit" value="$VAR[PosterWidgetLimit]"/>
+				<param name="content" value="plugin://script.embuary.helper/?info=getoscars&amp;category=best_picture&amp;type=movie&amp;tag=Movies&amp;reload=$INFO[Window(home).Property(EmbuaryWidgetUpdate)]"/>
+			</include>
+			<include content="PosterWidget">
+				<param name="visible" value="Skin.HasSetting(OscarWinnersOnly)"/>
+				<param name="id" value="100"/>
+				<param name="onup" value="99"/>
+				<param name="ondown" value="101"/>
+				<param name="headline" value="Best Picture Nominees"/>
+				<param name="mainlabel" value="$INFO[ListItem.Title]"/>
+				<param name="sublabel" value="$INFO[ListItem.Year]"/>
+				<param name="widget_target" value="videos"/>
+				<param name="limit" value="$VAR[PosterWidgetLimit]"/>
+				<param name="content" value="plugin://script.embuary.helper/?info=getoscars&amp;category=best_picture&amp;type=movie&amp;winner=no&amp;tag=Movies&amp;reload=$INFO[Window(home).Property(EmbuaryWidgetUpdate)]"/>
+			</include>
+			<include content="PosterWidget">
+				<param name="visible" value="!Skin.HasSetting(OscarWinnersOnly)"/>
+				<param name="id" value="101"/>
+				<param name="onup" value="100"/>
+				<param name="ondown" value="102"/>
+				<param name="icon" value="$INFO[ListItem.Property(actor_icon)]"/>
+				<param name="headline" value="Best Actor Winners"/>
+				<param name="mainlabel" value="$INFO[ListItem.Property(oscar_nominee)]"/>
+				<param name="sublabel" value="$INFO[ListItem.Title] ($INFO[ListItem.Year])"/>
+				<param name="widget_target" value="videos"/>
+				<param name="limit" value="$VAR[PosterWidgetLimit]"/>
+				<param name="content" value="plugin://script.embuary.helper/?info=getoscars&amp;category=best_actor&amp;type=movie&amp;tag=Movies&amp;reload=$INFO[Window(home).Property(EmbuaryWidgetUpdate)]"/>
+			</include>
+			<include content="PosterWidget">
+				<param name="visible" value="Skin.HasSetting(OscarWinnersOnly)"/>
+				<param name="id" value="101"/>
+				<param name="onup" value="100"/>
+				<param name="ondown" value="102"/>
+				<param name="icon" value="$INFO[ListItem.Property(actor_icon)]"/>
+				<param name="headline" value="Best Actor Nominees"/>
+				<param name="mainlabel" value="$INFO[ListItem.Property(oscar_nominee)]"/>
+				<param name="sublabel" value="$INFO[ListItem.Title] ($INFO[ListItem.Year])"/>
+				<param name="widget_target" value="videos"/>
+				<param name="limit" value="$VAR[PosterWidgetLimit]"/>
+				<param name="content" value="plugin://script.embuary.helper/?info=getoscars&amp;category=best_actor&amp;type=movie&amp;winner=no&amp;tag=Movies&amp;reload=$INFO[Window(home).Property(EmbuaryWidgetUpdate)]"/>
+			</include>
+			<include content="PosterWidget">
+				<param name="visible" value="!Skin.HasSetting(OscarWinnersOnly)"/>
+				<param name="id" value="102"/>
+				<param name="onup" value="101"/>
+				<param name="ondown" value="103"/>
+				<param name="headline" value="Best Actress Winners"/>
+				<param name="icon" value="$INFO[ListItem.Property(actor_icon)]"/>
+				<param name="mainlabel" value="$INFO[ListItem.Property(oscar_nominee)]"/>
+				<param name="sublabel" value="$INFO[ListItem.Title] ($INFO[ListItem.Year])"/>
+				<param name="widget_target" value="videos"/>
+				<param name="limit" value="$VAR[PosterWidgetLimit]"/>
+				<param name="content" value="plugin://script.embuary.helper/?info=getoscars&amp;category=best_actress&amp;type=movie&amp;tag=Movies&amp;reload=$INFO[Window(home).Property(EmbuaryWidgetUpdate)]"/>
+			</include>
+			<include content="PosterWidget">
+				<param name="visible" value="Skin.HasSetting(OscarWinnersOnly)"/>
+				<param name="id" value="102"/>
+				<param name="onup" value="101"/>
+				<param name="ondown" value="103"/>
+				<param name="headline" value="Best Actress Nominees"/>
+				<param name="icon" value="$INFO[ListItem.Property(actor_icon)]"/>
+				<param name="mainlabel" value="$INFO[ListItem.Property(oscar_nominee)]"/>
+				<param name="sublabel" value="$INFO[ListItem.Title] ($INFO[ListItem.Year])"/>
+				<param name="widget_target" value="videos"/>
+				<param name="limit" value="$VAR[PosterWidgetLimit]"/>
+				<param name="content" value="plugin://script.embuary.helper/?info=getoscars&amp;category=best_actress&amp;winner=no&amp;type=movie&amp;tag=Movies&amp;reload=$INFO[Window(home).Property(EmbuaryWidgetUpdate)]"/>
+			</include>
+			<include content="PosterWidget">
+				<param name="visible" value="!Skin.HasSetting(OscarWinnersOnly)"/>
+				<param name="id" value="103"/>
+				<param name="onup" value="102"/>
+				<param name="ondown" value="104"/>
+				<param name="icon" value="$INFO[ListItem.Property(actor_icon)]"/>
+				<param name="headline" value="Best Supporting Actor Winners"/>
+				<param name="mainlabel" value="$INFO[ListItem.Property(oscar_nominee)]"/>
+				<param name="sublabel" value="$INFO[ListItem.Title] ($INFO[ListItem.Year])"/>
+				<param name="widget_target" value="videos"/>
+				<param name="limit" value="$VAR[PosterWidgetLimit]"/>
+				<param name="content" value="plugin://script.embuary.helper/?info=getoscars&amp;category=best_supporting_actor&amp;type=movie&amp;tag=Movies&amp;reload=$INFO[Window(home).Property(EmbuaryWidgetUpdate)]"/>
+			</include>
+			<include content="PosterWidget">
+				<param name="visible" value="Skin.HasSetting(OscarWinnersOnly)"/>
+				<param name="id" value="103"/>
+				<param name="onup" value="102"/>
+				<param name="ondown" value="104"/>
+				<param name="icon" value="$INFO[ListItem.Property(actor_icon)]"/>
+				<param name="headline" value="Best Supporting Actor Nominees"/>
+				<param name="mainlabel" value="$INFO[ListItem.Property(oscar_nominee)]"/>
+				<param name="sublabel" value="$INFO[ListItem.Title] ($INFO[ListItem.Year])"/>
+				<param name="widget_target" value="videos"/>
+				<param name="limit" value="$VAR[PosterWidgetLimit]"/>
+				<param name="content" value="plugin://script.embuary.helper/?info=getoscars&amp;category=best_supporting_actor&amp;winner=no&amp;type=movie&amp;tag=Movies&amp;reload=$INFO[Window(home).Property(EmbuaryWidgetUpdate)]"/>
+			</include>
+			<include content="PosterWidget">
+				<param name="visible" value="!Skin.HasSetting(OscarWinnersOnly)"/>
+				<param name="id" value="104"/>
+				<param name="onup" value="103"/>
+				<param name="ondown" value="105"/>
+				<param name="headline" value="Best Supporting Actress Winners"/>
+				<param name="icon" value="$INFO[ListItem.Property(actor_icon)]"/>
+				<param name="mainlabel" value="$INFO[ListItem.Property(oscar_nominee)]"/>
+				<param name="sublabel" value="$INFO[ListItem.Title] ($INFO[ListItem.Year])"/>
+				<param name="widget_target" value="videos"/>
+				<param name="limit" value="$VAR[PosterWidgetLimit]"/>
+				<param name="content" value="plugin://script.embuary.helper/?info=getoscars&amp;category=best_supporting_actress&amp;type=movie&amp;tag=Movies&amp;reload=$INFO[Window(home).Property(EmbuaryWidgetUpdate)]"/>
+			</include>
+			<include content="PosterWidget">
+				<param name="visible" value="Skin.HasSetting(OscarWinnersOnly)"/>
+				<param name="id" value="104"/>
+				<param name="onup" value="103"/>
+				<param name="ondown" value="105"/>
+				<param name="headline" value="Best Supporting Actress Nominees"/>
+				<param name="icon" value="$INFO[ListItem.Property(actor_icon)]"/>
+				<param name="mainlabel" value="$INFO[ListItem.Property(oscar_nominee)]"/>
+				<param name="sublabel" value="$INFO[ListItem.Title] ($INFO[ListItem.Year])"/>
+				<param name="widget_target" value="videos"/>
+				<param name="limit" value="$VAR[PosterWidgetLimit]"/>
+				<param name="content" value="plugin://script.embuary.helper/?info=getoscars&amp;category=best_supporting_actress&amp;winner=no&amp;type=movie&amp;tag=Movies&amp;reload=$INFO[Window(home).Property(EmbuaryWidgetUpdate)]"/>
+			</include>
+			<include content="PosterWidget">
+				<param name="visible" value="!Skin.HasSetting(OscarWinnersOnly)"/>
+				<param name="id" value="105"/>
+				<param name="onup" value="104"/>
+				<param name="ondown" value="106"/>
+				<param name="headline" value="Best Director Winners"/>
+				<param name="mainlabel" value="$INFO[ListItem.Director]"/>
+				<param name="sublabel" value="$INFO[ListItem.Title] ($INFO[ListItem.Year])"/>
+				<param name="widget_target" value="videos"/>
+				<param name="limit" value="$VAR[PosterWidgetLimit]"/>
+				<param name="content" value="plugin://script.embuary.helper/?info=getoscars&amp;category=best_director&amp;type=movie&amp;tag=Movies&amp;reload=$INFO[Window(home).Property(EmbuaryWidgetUpdate)]"/>
+			</include>
+			<include content="PosterWidget">
+				<param name="visible" value="Skin.HasSetting(OscarWinnersOnly)"/>
+				<param name="id" value="105"/>
+				<param name="onup" value="104"/>
+				<param name="ondown" value="noop"/>
+				<param name="headline" value="Best Director Nominees"/>
+				<param name="mainlabel" value="$INFO[ListItem.Director]"/>
+				<param name="sublabel" value="$INFO[ListItem.Title] ($INFO[ListItem.Year])"/>
+				<param name="widget_target" value="videos"/>
+				<param name="limit" value="$VAR[PosterWidgetLimit]"/>
+				<param name="content" value="plugin://script.embuary.helper/?info=getoscars&amp;category=best_director&amp;winner=no&amp;type=movie&amp;tag=Movies&amp;reload=$INFO[Window(home).Property(EmbuaryWidgetUpdate)]"/>
+			</include>
+		</control>
+		<!-- header bar -->
+		<include content="HeaderBar">
+			<param name="id">10</param>
+		</include>
+		<!-- busy spinner -->
+<!--		<include content="CustomBusySpinner">-->
+<!--			<param name="diffuse" value="false"/>-->
+<!--			<param name="visible" value="![!Container(100).IsUpdating + !Container(101).IsUpdating + !Container(102).IsUpdating + !Container(103).IsUpdating + !Container(104).IsUpdating + !Container(105).IsUpdating | !String.IsEmpty(Window(home).Property(ForceFocusReset))"/>-->
+<!--		</include>-->
+		<!-- side panel -->
+		<include content="SidePanel"/>
+	</controls>
+</window>

@@ -1294,27 +1294,57 @@
 		<definition>
 			<control type="group">
 				<visible>$PARAM[visible]</visible>
-				<control type="label">
-					<animation effect="slide" end="0,2" time="0" condition="true">Conditional</animation>
-					<width>auto</width>
-					<height>40</height>
-					<label>$INFO[$PARAM[type].Genre,$LOCALIZE[515]: ,   ]$INFO[$PARAM[type].Director,$LOCALIZE[20339]: ]</label>
-					<font>Reg22</font>
-					<aligny>top</aligny>
-					<textcolor>$VAR[AccentColor]</textcolor>
-					<visible>!String.IsEqual(ListItem.DBType,set) + !String.IsEqual($PARAM[type].dbtype,tvshow) + !String.IsEqual($PARAM[type].property(call),tv)</visible>
-					<visible>!String.IsEmpty($PARAM[type].Genre) | !String.IsEmpty($PARAM[type].Director)</visible>
-				</control>
-				<control type="label">
-					<animation effect="slide" end="0,2" time="0" condition="true">Conditional</animation>
-					<width>auto</width>
-					<height>40</height>
-					<label>$INFO[$PARAM[type].Genre,$LOCALIZE[515]: ,   ]$INFO[$PARAM[type].Director,$LOCALIZE[31371]: ]</label>
-					<font>Reg22</font>
-					<aligny>top</aligny>
-					<textcolor>$VAR[AccentColor]</textcolor>
-					<visible>!String.IsEqual(ListItem.DBType,set) + [String.IsEqual($PARAM[type].dbtype,tvshow) | String.IsEqual($PARAM[type].property(call),tv)]</visible>
-					<visible>!String.IsEmpty($PARAM[type].Genre) | !String.IsEmpty($PARAM[type].Director)</visible>
+				<control type="grouplist">
+                    <height>auto</height>
+                    <itemgap>10</itemgap>
+                    <orientation>horizontal</orientation>
+                    <usecontrolcoords>true</usecontrolcoords>
+					<control type="label">
+						<animation effect="slide" end="0,2" time="0" condition="true">Conditional</animation>
+						<width>auto</width>
+						<height>40</height>
+						<label>$INFO[$PARAM[type].Genre,$LOCALIZE[515]: ,   ]$INFO[$PARAM[type].Director,$LOCALIZE[20339]: ]</label>
+						<font>Reg22</font>
+						<aligny>top</aligny>
+						<textcolor>$VAR[AccentColor]</textcolor>
+						<visible>!String.IsEqual(ListItem.DBType,set) + !String.IsEqual($PARAM[type].dbtype,tvshow) + !String.IsEqual($PARAM[type].property(call),tv)</visible>
+						<visible>!String.IsEmpty($PARAM[type].Genre) | !String.IsEmpty($PARAM[type].Director)</visible>
+					</control>
+					<!--Oscar Best Director Nominee-->
+					<control type="label">
+							<visible>String.IsEqual(Container(2000).ListItem.Property(oscar_director),False)</visible>
+							<width>auto</width>
+							<height>40</height>
+							<top>-5</top>
+							<label>&#xf538;</label>
+							<font>Material24</font>
+							<textcolor>white</textcolor>
+							<shadowcolor>text_shadow</shadowcolor>
+							<selectedcolor>white</selectedcolor>
+					</control>
+					<!--Oscar Best Director Winner-->
+					<control type="label">
+							<visible>String.IsEqual(Container(2000).ListItem.Property(oscar_director),True)</visible>
+							<width>auto</width>
+							<height>40</height>
+							<top>-5</top>
+							<label>&#xf538;</label>
+							<font>Material24</font>
+							<textcolor>gold</textcolor>
+							<shadowcolor>text_shadow</shadowcolor>
+							<selectedcolor>white</selectedcolor>
+					</control>
+					<control type="label">
+						<animation effect="slide" end="0,2" time="0" condition="true">Conditional</animation>
+						<width>auto</width>
+						<height>40</height>
+						<label>$INFO[$PARAM[type].Genre,$LOCALIZE[515]: ,   ]$INFO[$PARAM[type].Director,$LOCALIZE[31371]: ]</label>
+						<font>Reg22</font>
+						<aligny>top</aligny>
+						<textcolor>$VAR[AccentColor]</textcolor>
+						<visible>!String.IsEqual(ListItem.DBType,set) + [String.IsEqual($PARAM[type].dbtype,tvshow) | String.IsEqual($PARAM[type].property(call),tv)]</visible>
+						<visible>!String.IsEmpty($PARAM[type].Genre) | !String.IsEmpty($PARAM[type].Director)</visible>
+					</control>
 				</control>
 				<control type="label">
 					<animation effect="slide" end="0,2" time="0" condition="true">Conditional</animation>
