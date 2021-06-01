@@ -313,6 +313,7 @@
 							</item>
 							<item>
 								<visible>!String.IsEmpty(ListItem.Plot)</visible>
+								<visible>Container(2011).HasNext</visible>
 								<label>$LOCALIZE[207]</label>
 								<property name="icon">&#xf9a9;</property>
 								<onclick>RunScript(script.embuary.helper,action=textviewer,header='$ESCINFO[ListItem.TVShowTitle]',message='$ESCVAR[TinyInfoDialogPlot]')</onclick>
@@ -345,7 +346,7 @@
 						<include>MetaGenre</include>
 					</control>
 					<!-- plot -->
-					<control type="textbox">
+					<control type="textbox" id="2011">
 						<top>246</top>
 						<width>100%</width>
 						<height max="135">auto</height>
@@ -418,6 +419,7 @@
 						</control>
 						<control type="button" id="97">
 							<visible>!String.IsEmpty(ListItem.Plot)</visible>
+							<visible>Container(2013).HasNext</visible>
 							<include>LightGreyButtonRound</include>
 							<font>Material24</font>
 							<label>&#xf9a9;</label>
@@ -447,7 +449,7 @@
 					<!-- genre -->
 					<include>MetaGenre</include>
 					<!-- plot -->
-					<control type="textbox">
+					<control type="textbox" id="2013">
 						<width>100%</width>
 						<height max="135">auto</height>
 						<align>justify</align>
@@ -629,6 +631,7 @@
 							</item>
 							<item>
 								<visible>!String.IsEmpty(ListItem.Plot)</visible>
+								<visible>Container(2015).HasNext</visible>
 								<label>$LOCALIZE[207]</label>
 								<property name="icon">&#xf9a9;</property>
 								<onclick>RunScript(script.embuary.helper,action=textviewer,header='$ESCINFO[ListItem.TVShowTitle]',message='$ESCVAR[TinyInfoDialogPlot]')</onclick>>
@@ -655,7 +658,7 @@
 						<include>MetaGenre</include>
 					</control>
 					<!-- plot -->
-					<control type="textbox">
+					<control type="textbox" id="2015">
 						<top>296</top>
 						<width>100%</width>
 						<height max="65">auto</height>
@@ -744,6 +747,7 @@
 						</control>
 						<control type="button" id="97">
 							<visible>!String.IsEmpty(ListItem.Plot)</visible>
+							<visible>Container(2016).HasNext</visible>
 							<include>LightGreyButtonRound</include>
 							<font>Material24</font>
 							<label>&#xf9a9;</label>
@@ -761,7 +765,7 @@
 							<onclick condition="$EXP[HasEmbyConContext]">RunPlugin(plugin://plugin.video.embycon?mode=SHOW_MENU&amp;item_id=$INFO[ListItem.Property(id)])</onclick>
 						</control>
 					</control>
-					<control type="textbox">
+					<control type="textbox" id="2016">
 						<width>100%</width>
 						<height max="135">auto</height>
 						<align>justify</align>
