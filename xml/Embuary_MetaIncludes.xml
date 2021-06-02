@@ -610,6 +610,8 @@
 	<!-- Art includes -->
 	<include name="MetaPoster">
 		<param name="visible">true</param>
+		<param name="oscar_wins"/>
+		<param name="oscar_noms"/>
 		<definition>
 			<control type="group">
 				<visible>$PARAM[visible]</visible>
@@ -671,11 +673,13 @@
 					<visible>!String.StartsWith(ListItem.Path,pvr://)</visible>
 				</control>
 				<control type="group">
-					<visible>Window.IsVisible(movieinformation) | Window.IsVisible(DialogPVRInfo.xml)</visible>
+					<visible>Window.IsVisible(movieinformation) | Window.IsVisible(DialogPVRInfo.xml) | Window.IsVisible(MyVideoNav.xml)</visible>
 					<width>276</width>
 					<height>414</height>
 					<include content="ListitemOverlay">
 						<param name="use_unwatched_property" value="$PARAM[use_unwatched_property]"/>
+						<param name="oscar_wins" value="$PARAM[oscar_wins]"/>
+						<param name="oscar_wins" value="$PARAM[oscar_noms]"/>
 					</include>
 					<include content="Progress">
 						<param name="top" value="410"/>

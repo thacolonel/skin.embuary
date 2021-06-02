@@ -3,6 +3,8 @@
 	<!-- Main listItem overlay -->
 	<include name="ListitemOverlay">
 		<param name="pvr_overlay">true</param>
+		<param name="oscar_wins"/>
+		<param name="oscar_noms"/>
 		<definition>
 			<control type="group">
 				<visible>!String.IsEqual(ListItem.DBType,artist) + !String.IsEqual(ListItem.DBType,album) + !String.IsEqual(ListItem.DBType,song)</visible>
@@ -14,7 +16,10 @@
 				</include>
 				<include>ListItemOverlayHDR</include>
 				<include>ListItemOverlayTmbdbIsLocal</include>
-				<include>OscarOverlay</include>
+				<include content="OscarOverlay">
+					<param name="oscar_wins" value="$PARAM[oscar_wins]"/>
+					<param name="oscar_noms" value="$PARAM[oscar_noms]"/>
+				</include>
 				<include>ListItemOverlayAddonStatus</include>
 			</control>
 		</definition>
@@ -571,9 +576,11 @@
 
 	<!-- Oscar overlay-->
 	<include name="OscarOverlay">
+		<param name="oscar_wins"/>
+		<param name="oscar_noms"/>
 		<definition>
 			<control type="group">
-				<visible>!String.IsEmpty(Container(2000).ListItem.Property(oscars))</visible>
+				<visible>[!String.IsEmpty(Container(2000).ListItem.Property(oscars)) | !String.IsEmpty($PARAM[oscar_wins]) | !String.IsEmpty($PARAM[oscar_noms])]</visible>
 				<visible>![Window.IsVisible(script-embuary-video.xml) | Window.IsVisible(script-embuary-person.xml)]</visible>
 				<control type="group">
 					<left>8</left>
@@ -587,7 +594,7 @@
 						<aspectratio>keep</aspectratio>
 					</control>
 					<control type="label">
-						<visible>[!Integer.IsGreater(Container(2000).ListItem.Property(oscar_wins),0) + !Window.IsVisible(Custom_1127_Oscars.xml)] | [!String.IsEmpty(Container(2000).ListItem.Property(oscar_category)) + String.IsEqual(Container(2000).ListItem.Property(oscar_winner),False) + Window.IsVisible(Custom_1127_Oscars.xml)]</visible>
+						<visible>[!Integer.IsGreater(Container(2000).ListItem.Property(oscar_wins),0) + !Window.IsVisible(Custom_1127_Oscars.xml)] | [!String.IsEmpty(Container(2000).ListItem.Property(oscar_category)) + String.IsEqual(Container(2000).ListItem.Property(oscar_winner),False) + Window.IsVisible(Custom_1127_Oscars.xml)] | [Window.IsVisible(DialogVideoInfo.xml) + Integer.IsEqual(Container(2000).ListItem.Property(oscar_wins),0)] |  !String.IsEmpty($PARAM[oscar_wins])</visible>
 						<top>7</top>
 						<left>1</left>
 						<width>44</width>
@@ -601,7 +608,7 @@
 						<aligny>top</aligny>
 					</control>
 					<control type="label">
-						<visible>[Integer.IsGreater(Container(2000).ListItem.Property(oscar_wins),0) + !Window.IsVisible(Custom_1127_Oscars.xml)] | [!String.IsEmpty(Container(2000).ListItem.Property(oscar_category)) + String.IsEqual(Container(2000).ListItem.Property(oscar_winner),True) + Window.IsVisible(Custom_1127_Oscars.xml)]</visible>
+						<visible>[Integer.IsGreater(Container(2000).ListItem.Property(oscar_wins),0) + !Window.IsVisible(Custom_1127_Oscars.xml)] | [!String.IsEmpty(Container(2000).ListItem.Property(oscar_category)) + String.IsEqual(Container(2000).ListItem.Property(oscar_winner),True) + Window.IsVisible(Custom_1127_Oscars.xml)] | [Window.IsVisible(DialogVideoInfo.xml) + Integer.IsGreater(Container(2000).ListItem.Property(oscar_wins),0)] | !String.IsEmpty($PARAM[oscar_noms]) + String.IsEmpty($PARAM[oscar_wins])</visible>
 						<top>7</top>
 						<left>1</left>
 						<width>44</width>

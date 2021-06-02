@@ -93,12 +93,6 @@
 								<onclick>RunScript(script.embuary.helper,action=textviewer,header='$ESCINFO[ListItem.Title]',message='$ESCINFO[ListItem.Plot]')</onclick>
 							</item>
 							<item>
-								<visible>!String.IsEmpty(Container(2000).ListItem.Property(oscars))</visible>
-								<label>Oscars</label>
-								<property name="icon">&#xf538;</property>
-								<onclick condition="!String.IsEqual(ListItem.DBType,set)">RunScript(script.embuary.helper,action=oscarviewer,header='Academy Awards',imdbid='$INFO[ListItem.IMDBNumber]')</onclick>
-							</item>
-							<item>
 								<visible>System.HasAddon(script.embuary.info)</visible>
 								<label>TMDb</label>
 								<property name="icon">&#xF64E;</property>
@@ -112,6 +106,12 @@
 								<onclick condition="!$EXP[HasEmbyContext] + $EXP[HasLibraryEditButton]">SetFocus(4000)</onclick>
 								<onclick condition="$EXP[HasEmbyContext]">RunScript(special://home/addons/plugin.video.emby/context.py)</onclick>
 								<onclick condition="$EXP[HasEmbyConContext]">RunPlugin(plugin://plugin.video.embycon?mode=SHOW_MENU&amp;item_id=$INFO[ListItem.Property(id)])</onclick>
+							</item>
+							<item>
+								<visible>!String.IsEmpty(Container(2000).ListItem.Property(oscars))</visible>
+								<label>Oscars</label>
+								<property name="icon">&#xf538;</property>
+								<onclick condition="!String.IsEqual(ListItem.DBType,set)">RunScript(script.embuary.helper,action=oscarviewer,header='Academy Awards',imdbid='$INFO[ListItem.IMDBNumber]')</onclick>
 							</item>
 						</content>
 					</control>

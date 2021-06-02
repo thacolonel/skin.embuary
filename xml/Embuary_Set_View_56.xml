@@ -21,6 +21,8 @@
 					<!-- poster -->
 					<include content="MetaPoster">
 						<param name="visible" value="Integer.IsGreater(Container.NumItems,0)"/>
+						<param name="oscar_wins" value="Container(2000).ListItem.Property(oscar_wins)"/>
+						<param name="oscar_noms" value="Container(2000).ListItem.Property(oscar_noms)"/>
 					</include>
 					<!-- meta -->
 					<control type="group">
@@ -129,12 +131,6 @@
 									<onclick condition="String.IsEqual(ListItem.DBType,set) + !String.IsEmpty(Container(2001).ListItem.Label)">RunScript(script.embuary.helper,action=textviewer,header='$ESCINFO[ListItem.Title]',message='$ESCVAR[ListViewPlot]')</onclick>
 								</item>
 								<item>
-									<visible>!String.IsEmpty(Container(2000).ListItem.Property(oscars))</visible>
-									<label>Oscars</label>
-									<property name="icon">&#xf538;</property>
-									<onclick condition="!String.IsEqual(ListItem.DBType,set)">RunScript(script.embuary.helper,action=oscarviewer,header='Academy Awards',imdbid='$INFO[ListItem.IMDBNumber]')</onclick>
-								</item>
-								<item>
 									<label>$LOCALIZE[16101]</label>
 									<property name="icon">&#xfe6e;</property>
 									<include>ToggleWatchedAction</include>
@@ -153,6 +149,12 @@
 									<property name="icon">&#xf1d8;</property>
 									<onclick condition="$EXP[HasEmbyContext]">RunScript(special://home/addons/plugin.video.emby/context.py)</onclick>
 									<onclick condition="$EXP[HasEmbyConContext]">RunPlugin(plugin://plugin.video.embycon?mode=SHOW_MENU&amp;item_id=$INFO[ListItem.Property(id)])</onclick>
+								</item>
+								<item>
+									<visible>!String.IsEmpty(Container(2000).ListItem.Property(oscars))</visible>
+									<label>Oscars</label>
+									<property name="icon">&#xf538;</property>
+									<onclick condition="!String.IsEqual(ListItem.DBType,set)">RunScript(script.embuary.helper,action=oscarviewer,header='Academy Awards',imdbid='$INFO[ListItem.IMDBNumber]')</onclick>
 								</item>
 							</content>
 						</control>
