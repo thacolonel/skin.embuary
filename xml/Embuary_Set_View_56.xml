@@ -122,14 +122,7 @@
 									<property name="icon">&#xf230;</property>
 									<onclick>PlayMedia($INFO[ListItem.Trailer])</onclick>
 								</item>
-								<item>
-									<visible>!String.IsEmpty(ListItem.Plot) | !String.IsEmpty(Container(2001).ListItem.Label)</visible>
-									<visible>Container(2010).HasNext</visible>
-									<label>$LOCALIZE[207]</label>
-									<property name="icon">&#xf9a9;</property>
-									<onclick condition="!String.IsEqual(ListItem.DBType,set)">RunScript(script.embuary.helper,action=textviewer,header='$ESCINFO[ListItem.Title]',message='$ESCINFO[ListItem.Plot]')</onclick>
-									<onclick condition="String.IsEqual(ListItem.DBType,set) + !String.IsEmpty(Container(2001).ListItem.Label)">RunScript(script.embuary.helper,action=textviewer,header='$ESCINFO[ListItem.Title]',message='$ESCVAR[ListViewPlot]')</onclick>
-								</item>
+
 								<item>
 									<label>$LOCALIZE[16101]</label>
 									<property name="icon">&#xfe6e;</property>
@@ -149,6 +142,14 @@
 									<property name="icon">&#xf1d8;</property>
 									<onclick condition="$EXP[HasEmbyContext]">RunScript(special://home/addons/plugin.video.emby/context.py)</onclick>
 									<onclick condition="$EXP[HasEmbyConContext]">RunPlugin(plugin://plugin.video.embycon?mode=SHOW_MENU&amp;item_id=$INFO[ListItem.Property(id)])</onclick>
+								</item>
+								<item>
+									<visible>!String.IsEmpty(ListItem.Plot) | !String.IsEmpty(Container(2001).ListItem.Label)</visible>
+									<visible>Container(2010).HasNext</visible>
+									<label>$LOCALIZE[207]</label>
+									<property name="icon">&#xf9a9;</property>
+									<onclick condition="!String.IsEqual(ListItem.DBType,set)">RunScript(script.embuary.helper,action=textviewer,header='$ESCINFO[ListItem.Title]',message='$ESCINFO[ListItem.Plot]')</onclick>
+									<onclick condition="String.IsEqual(ListItem.DBType,set) + !String.IsEmpty(Container(2001).ListItem.Label)">RunScript(script.embuary.helper,action=textviewer,header='$ESCINFO[ListItem.Title]',message='$ESCVAR[ListViewPlot]')</onclick>
 								</item>
 								<item>
 									<visible>!String.IsEmpty(Container(2000).ListItem.Property(oscars))</visible>
