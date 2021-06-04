@@ -23,6 +23,7 @@
 						<param name="visible" value="Integer.IsGreater(Container.NumItems,0)"/>
 						<param name="oscar_wins" value="Container(2000).ListItem.Property(oscar_wins)"/>
 						<param name="oscar_noms" value="Container(2000).ListItem.Property(oscar_noms)"/>
+						<param name ="oscar_picture" value="Container(2000).ListItem.Property(oscar_picture)"/>
 					</include>
 					<!-- meta -->
 					<control type="group">

@@ -612,6 +612,7 @@
 		<param name="visible">true</param>
 		<param name="oscar_wins"/>
 		<param name="oscar_noms"/>
+		<param name="oscar_picture"/>
 		<definition>
 			<control type="group">
 				<visible>$PARAM[visible]</visible>
@@ -680,6 +681,7 @@
 						<param name="use_unwatched_property" value="$PARAM[use_unwatched_property]"/>
 						<param name="oscar_wins" value="$PARAM[oscar_wins]"/>
 						<param name="oscar_wins" value="$PARAM[oscar_noms]"/>
+						<param name="oscar_picture" value="PARAM[oscar_picture]"/>
 					</include>
 					<include content="Progress">
 						<param name="top" value="410"/>

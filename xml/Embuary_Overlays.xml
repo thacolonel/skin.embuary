@@ -5,6 +5,7 @@
 		<param name="pvr_overlay">true</param>
 		<param name="oscar_wins"/>
 		<param name="oscar_noms"/>
+		<param name="oscar_picture"/>
 		<definition>
 			<control type="group">
 				<visible>!String.IsEqual(ListItem.DBType,artist) + !String.IsEqual(ListItem.DBType,album) + !String.IsEqual(ListItem.DBType,song)</visible>
@@ -19,6 +20,7 @@
 				<include content="OscarOverlay">
 					<param name="oscar_wins" value="$PARAM[oscar_wins]"/>
 					<param name="oscar_noms" value="$PARAM[oscar_noms]"/>
+					<param name="oscar_picture" value="$PARAM[oscar_picture]"/>
 				</include>
 				<include>ListItemOverlayAddonStatus</include>
 			</control>
@@ -578,9 +580,11 @@
 	<include name="OscarOverlay">
 		<param name="oscar_wins"/>
 		<param name="oscar_noms"/>
+		<param name="oscar_picture"/>
 		<definition>
 			<control type="group">
-				<visible>[!String.IsEmpty(Container(2000).ListItem.Property(oscars)) | !String.IsEmpty($PARAM[oscar_wins]) | !String.IsEmpty($PARAM[oscar_noms])]</visible>
+				<visible>[!String.IsEmpty(Container(2000).ListItem.Property(oscar_picture)) + !Window.IsVisible(Custom_1127_Oscars.xml)] | [!String.IsEmpty(Container(2000).ListItem.Property(oscars)) | !String.IsEmpty($PARAM[oscar_wins]) | !String.IsEmpty($PARAM[oscar_noms])] + Window.IsVisible(Custom_1127_Oscars.xml) </visible>
+<!--				<visible>[!String.IsEmpty(Container(2000).ListItem.Property(oscars)) | !String.IsEmpty($PARAM[oscar_wins]) | !String.IsEmpty($PARAM[oscar_noms])] + Window.IsVisible(Custom_1127_Oscars.xml) </visible>-->
 				<visible>![Window.IsVisible(script-embuary-video.xml) | Window.IsVisible(script-embuary-person.xml)]</visible>
 				<control type="group">
 					<left>8</left>
@@ -594,7 +598,8 @@
 						<aspectratio>keep</aspectratio>
 					</control>
 					<control type="label">
-						<visible>[!Integer.IsGreater(Container(2000).ListItem.Property(oscar_wins),0) + !Window.IsVisible(Custom_1127_Oscars.xml)] | [!String.IsEmpty(Container(2000).ListItem.Property(oscar_category)) + String.IsEqual(Container(2000).ListItem.Property(oscar_winner),False) + Window.IsVisible(Custom_1127_Oscars.xml)] | [Window.IsVisible(DialogVideoInfo.xml) + Integer.IsEqual(Container(2000).ListItem.Property(oscar_wins),0)] |  !String.IsEmpty($PARAM[oscar_wins])</visible>
+<!--						<visible>[String.IsEqual(Container(2000).ListItem.Property(oscar_picture),False) + !Window.IsVisible(Custom_1127_Oscars.xml)]</visible>-->
+						<visible>[String.IsEqual(Container(2000).ListItem.Property(oscar_picture),False) + !Window.IsVisible(Custom_1127_Oscars.xml) | !String.IsEmpty(Container(2000).ListItem.Property(oscar_category)) + String.IsEqual(Container(2000).ListItem.Property(oscar_winner),False) + Window.IsVisible(Custom_1127_Oscars.xml) | Window.IsVisible(DialogVideoInfo.xml) + String.IsEqual(Container(2000).ListItem.Property(oscar_picture),False)]</visible>
 						<top>7</top>
 						<left>1</left>
 						<width>44</width>
@@ -608,7 +613,8 @@
 						<aligny>top</aligny>
 					</control>
 					<control type="label">
-						<visible>[Integer.IsGreater(Container(2000).ListItem.Property(oscar_wins),0) + !Window.IsVisible(Custom_1127_Oscars.xml)] | [!String.IsEmpty(Container(2000).ListItem.Property(oscar_category)) + String.IsEqual(Container(2000).ListItem.Property(oscar_winner),True) + Window.IsVisible(Custom_1127_Oscars.xml)] | [Window.IsVisible(DialogVideoInfo.xml) + Integer.IsGreater(Container(2000).ListItem.Property(oscar_wins),0)] | !String.IsEmpty($PARAM[oscar_noms]) + String.IsEmpty($PARAM[oscar_wins])</visible>
+<!--						<visible>String.IsEqual(Container(2000).ListItem.Property(oscar_picture),True)</visible>-->
+						<visible>[String.IsEqual(Container(2000).ListItem.Property(oscar_picture),True) + !Window.IsVisible(Custom_1127_Oscars.xml) | !String.IsEmpty(Container(2000).ListItem.Property(oscar_category)) + String.IsEqual(Container(2000).ListItem.Property(oscar_winner),True) + Window.IsVisible(Custom_1127_Oscars.xml) | Window.IsVisible(DialogVideoInfo.xml) + String.IsEqual(Container(2000).ListItem.Property(oscar_picture),True)] </visible>
 						<top>7</top>
 						<left>1</left>
 						<width>44</width>

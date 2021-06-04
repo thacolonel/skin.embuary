@@ -86,7 +86,7 @@
 						<defaultcontrol always="true">0</defaultcontrol>
 						<onright>noop</onright>
 						<onleft>900</onleft>
-						<ondown>10052</ondown>
+						<ondown>10057</ondown>
 						<include>FocusBounce</include>
 						<itemlayout height="130" width="146">
 							<include content="IconMenu">
@@ -162,14 +162,38 @@
 				<!-- logo -->
 				<include>MetaClearlogo</include>
 			</control>
-			<!-- movies -->
+			<!-- known for -->
 			<include content="PosterWidget">
-				<param name="id" value="10052"/>
+				<param name="id" value="10057"/>
 				<param name="onup" value="100"/>
-				<param name="ondown" value="10053"/>
-				<param name="headline" value="$LOCALIZE[342]"/>
+				<param name="ondown" value="10056"/>
+				<param name="headline" value="$LOCALIZE[342] - $INFO[Container(10051).ListItem.Property(known_for_department)]"/>
 				<param name="mainlabel" value="$INFO[ListItem.Label]"/>
 				<param name="sublabel" value="$INFO[ListItem.Year]"/>
+				<param name="visible_icon" value="false"/>
+				<param name="use_custom_content" value="false"/>
+				<param name="property_button" value="false"/>
+			</include>
+<!--			&lt;!&ndash; movies &ndash;&gt;-->
+<!--			<include content="PosterWidget">-->
+<!--				<param name="id" value="10052"/>-->
+<!--				<param name="onup" value="100"/>-->
+<!--				<param name="ondown" value="10056"/>-->
+<!--				<param name="headline" value="$LOCALIZE[342] - Acting"/>-->
+<!--				<param name="mainlabel" value="$INFO[ListItem.Label]"/>-->
+<!--				<param name="sublabel" value="$INFO[ListItem.Year]"/>-->
+<!--				<param name="visible_icon" value="false"/>-->
+<!--				<param name="use_custom_content" value="false"/>-->
+<!--				<param name="property_button" value="false"/>-->
+<!--			</include>-->
+			<!-- crew -->
+			<include content="PosterWidget">
+				<param name="id" value="10056"/>
+				<param name="onup" value="10057"/>
+				<param name="ondown" value="10053"/>
+				<param name="headline" value="Movies - $INFO[Container(10051).ListItem.Property(other_crew)]"/>
+				<param name="mainlabel" value="$INFO[ListItem.Label] ($INFO[ListItem.Year])"/>
+				<param name="sublabel" value="$INFO[Container(10052).ListItem.Property(job)]"/>
 				<param name="visible_icon" value="false"/>
 				<param name="use_custom_content" value="false"/>
 				<param name="property_button" value="false"/>
@@ -177,7 +201,7 @@
 			<!-- shows -->
 			<include content="PosterWidget">
 				<param name="id" value="10053"/>
-				<param name="onup" value="10052"/>
+				<param name="onup" value="10056"/>
 				<param name="ondown" value="10054"/>
 				<param name="headline" value="$LOCALIZE[36903]"/>
 				<param name="mainlabel" value="$INFO[ListItem.Label]"/>
@@ -198,6 +222,7 @@
 				<param name="property_button" value="false"/>
 				<param name="height" value="551"/>
 			</include>
+
 		</control>
 		<!-- header bar -->
 		<include content="HeaderBar">
