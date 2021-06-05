@@ -186,12 +186,12 @@
 <!--				<param name="use_custom_content" value="false"/>-->
 <!--				<param name="property_button" value="false"/>-->
 <!--			</include>-->
-			<!-- crew -->
+			<!-- movie crew -->
 			<include content="PosterWidget">
 				<param name="id" value="10056"/>
 				<param name="onup" value="10057"/>
 				<param name="ondown" value="10053"/>
-				<param name="headline" value="Movies - $INFO[Container(10051).ListItem.Property(other_crew)]"/>
+				<param name="headline" value="Movies - $INFO[Container(10051).ListItem.Property(other_movie_crew)]"/>
 				<param name="mainlabel" value="$INFO[ListItem.Label] ($INFO[ListItem.Year])"/>
 				<param name="sublabel" value="$INFO[Container(10052).ListItem.Property(job)]"/>
 				<param name="visible_icon" value="false"/>
@@ -202,10 +202,22 @@
 			<include content="PosterWidget">
 				<param name="id" value="10053"/>
 				<param name="onup" value="10056"/>
-				<param name="ondown" value="10054"/>
-				<param name="headline" value="$LOCALIZE[36903]"/>
+				<param name="ondown" value="10058"/>
+				<param name="headline" value="TV - Acting"/>
 				<param name="mainlabel" value="$INFO[ListItem.Label]"/>
 				<param name="sublabel" value="$INFO[ListItem.Year]"/>
+				<param name="visible_icon" value="false"/>
+				<param name="use_custom_content" value="false"/>
+				<param name="property_button" value="false"/>
+			</include>
+				<!-- tv crew -->
+			<include content="PosterWidget">
+				<param name="id" value="10058"/>
+				<param name="onup" value="10053"/>
+				<param name="ondown" value="10054"/>
+				<param name="headline" value="TV - Crew"/>
+				<param name="mainlabel" value="$INFO[ListItem.Label] ($INFO[ListItem.Year])"/>
+				<param name="sublabel" value="$INFO[Container(10052).ListItem.Property(job)]"/>
 				<param name="visible_icon" value="false"/>
 				<param name="use_custom_content" value="false"/>
 				<param name="property_button" value="false"/>
@@ -213,7 +225,7 @@
 			<!-- images -->
 			<include content="PosterWidget">
 				<param name="id" value="10054"/>
-				<param name="onup" value="10053"/>
+				<param name="onup" value="10058"/>
 				<param name="ondown" value="noop"/>
 				<param name="headline" value="$LOCALIZE[1]"/>
 				<param name="mainlabel" value="$INFO[ListItem.Label]"/>
