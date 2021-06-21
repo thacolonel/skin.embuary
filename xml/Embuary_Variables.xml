@@ -2117,5 +2117,11 @@
 	<variable name="AFI_100Icon">
 		<value condition="[System.HasAddon(plugin.video.emby-next-gen) + !String.IsEmpty(Container(2000).ListItem.Property(AFI_100)) | String.StartsWith(ListItem.Path,plugin://plugin.video.embycon) | String.Contains(Player.Filenameandpath,/emby/)] + !String.IsEmpty(Container(2000).ListItem.Property(AFI_100))">icons/awards/AFI_100.png</value>
 	</variable>
+	<variable name="EmmyIcon">
+		<value condition="[System.HasAddon(plugin.video.emby-next-gen) + !String.IsEmpty(Container(2000).ListItem.Property(emmys)) | String.StartsWith(ListItem.Path,plugin://plugin.video.embycon) | String.Contains(Player.Filenameandpath,/emby/)] + !String.IsEmpty(Container(2000).ListItem.Property(emmys))">icons/awards/emmy-new.png</value>
+	</variable>
+	<variable name="EmmyCount">
+		<value condition="!String.IsEmpty(Container(2000).ListItem.Property(emmys)) + [System.HasAddon(plugin.video.emby-next-gen) | String.StartsWith(ListItem.Path,plugin://plugin.video.embycon)] + !String.IsEmpty(Container(2000).ListItem.Property(emmys))">$INFO[Container(2000).ListItem.Property(emmys)]</value>
+	</variable>
 
 </includes>

@@ -50,9 +50,9 @@
 							<visible>Container.Content(sets) | String.IsEqual(ListItem.DBType,set)</visible>
 						</control>
 						<control type="group">
-							<top>60</top>
+							<top>70</top>
 							<right>440</right>
-							<height>40</height>
+							<height>80</height>
 							<include>MetaShowInfos</include>
 							<visible>Container.Content(tvshows)</visible>
 						</control>
@@ -157,6 +157,12 @@
 									<label>Oscars</label>
 									<property name="icon">&#xf538;</property>
 									<onclick condition="!String.IsEqual(ListItem.DBType,set)">RunScript(script.embuary.helper,action=oscarviewer,header='Academy Awards',imdbid='$INFO[ListItem.IMDBNumber]')</onclick>
+								</item>
+								<item>
+									<visible>!String.IsEmpty(Container(2000).ListItem.Property(good_emmys))</visible>
+									<label>Emmys</label>
+									<property name="icon">&#xf538;</property>
+									<onclick condition="!String.IsEqual(ListItem.DBType,set)">RunScript(script.embuary.helper,action=emmyviewer,header='Primetime Emmy Awards',tvdbid='$INFO[ListItem.IMDBNumber]')</onclick>
 								</item>
 							</content>
 						</control>

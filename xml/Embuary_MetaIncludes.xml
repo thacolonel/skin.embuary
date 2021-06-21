@@ -237,32 +237,42 @@
 	</include>
 	<!-- TV show -->
 	<include name="MetaShowInfos">
-		<param name="width">1040</param>
+		<param name="width">1400</param>
+		<param name="top">-20</param>
 		<definition>
 			<control type="grouplist">
-				<height>40</height>
+				<usecontrolcoords>true</usecontrolcoords>
+				<top>$PARAM[top]</top>
+				<height>80</height>
 				<width>$PARAM[width]</width>
 				<itemgap>5</itemgap>
 				<orientation>horizontal</orientation>
 				<control type="label">
 					<label>$INFO[ListItem.Year]$VAR[TVShowStatus,  ([LOWERCASE],[/LOWERCASE])]   </label>
-					<include>MetaLabel</include>
+					<include content="NewMetaLabel">
+						<param name="height" value="60"/>
+					</include>
 					<visible>!String.IsEmpty(ListItem.Year)</visible>
 				</control>
 				<control type="label">
 					<label>$INFO[ListItem.Season,$LOCALIZE[33054]: ]   </label>
-					<include>MetaLabel</include>
+					<include content="NewMetaLabel">
+						<param name="height" value="60"/>
+					</include>
 					<visible>!String.IsEmpty(ListItem.Season)</visible>
 				</control>
 				<control type="label">
 					<label>$INFO[ListItem.Episode,$LOCALIZE[20360]: ]   </label>
-					<include>MetaLabel</include>
+					<include content="NewMetaLabel">
+						<param name="height" value="60"/>
+					</include>
 					<visible>!String.IsEmpty(ListItem.Episode)</visible>
 				</control>
 				<include>MpaaIcon</include>
 				<include content="MetaRating">
-					<param name="height" value="20"/>
+					<param name="height" value="60"/>
 				</include>
+				<include>Emmys</include>
 			</control>
 		</definition>
 	</include>
@@ -1251,6 +1261,7 @@
 				<height>24</height>
 				<font>MpaaFont</font>
 				<label>$INFO[$PARAM[type].Mpaa]</label>
+				<usecontrolcoords>true</usecontrolcoords>
 				<textoffsetx>7</textoffsetx>
 				<align>center</align>
 				<textcolor>text_white</textcolor>
@@ -1500,10 +1511,11 @@
 		<definition>
 			<control type="image">
 				<animation effect="slide" end="0,2" time="0" condition="true">Conditional</animation>
-				<width>20</width>
-				<height>40</height>
+				<top>-3</top>
+				<width>25</width>
+				<height>50</height>
 				<texture>$VAR[OscarIcon]</texture>
-				<aspectratio>keep</aspectratio>
+<!--				<aspectratio>keep</aspectratio>-->
 				<visible>
 					[
 					[System.HasAddon(plugin.video.emby-next-gen) | System.HasAddon(plugin.video.embycon)] + !String.IsEmpty(Container(2000).ListItem.Property(oscars))
@@ -1578,6 +1590,36 @@
 				<visible>
 					[
 					[System.HasAddon(plugin.video.emby-next-gen) | System.HasAddon(plugin.video.embycon)] + !String.IsEmpty(ListItem.Top250)
+					]
+				</visible>
+			</control>
+		</definition>
+	</include>
+	<!-- Emmys includes -->
+	<include name="Emmys">
+		<param name="type">ListItem</param>
+		<definition>
+			<control type="image">
+				<animation effect="slide" end="0,2" time="0" condition="true">Conditional</animation>
+				<top>-3</top>
+				<width>25</width>
+				<height>50</height>
+				<texture>$VAR[EmmyIcon]</texture>
+<!--				<aspectratio>keep</aspectratio>-->
+				<visible>
+					[
+					[System.HasAddon(plugin.video.emby-next-gen) | System.HasAddon(plugin.video.embycon)] + !String.IsEmpty(Container(2000).ListItem.Property(emmys))
+					]
+				</visible>
+			</control>
+			<control type="label">
+				<label> $VAR[EmmyCount]   </label>
+				<include content="NewMetaLabel">
+					<param name="height" value="60"/>
+				</include>
+				<visible>
+					[
+					[System.HasAddon(plugin.video.emby-next-gen) | System.HasAddon(plugin.video.embycon)] + !String.IsEmpty(Container(2000).ListItem.Property(emmys))
 					]
 				</visible>
 			</control>

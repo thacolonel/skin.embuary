@@ -321,12 +321,6 @@
 								<onclick>RunScript(script.embuary.helper,action=textviewer,header='$ESCINFO[ListItem.TVShowTitle]',message='$ESCVAR[TinyInfoDialogPlot]')</onclick>
 							</item>
 							<item>
-								<visible>System.HasAddon(plugin.video.youtube)</visible>
-								<label>YouTube</label>
-								<property name="icon">&#xf5c3;</property>
-								<onclick>RunScript(script.embuary.helper,action=goto,path='"plugin://plugin.video.youtube/kodion/search/query/?q=$INFO[ListItem.TVShowTitle]&amp;search_type=videos"',target=videos)</onclick>
-							</item>
-							<item>
 								<visible>System.HasAddon(script.embuary.info)</visible>
 								<label>TMDb</label>
 								<property name="icon">&#xF64E;</property>
@@ -340,7 +334,13 @@
 								<onclick condition="$EXP[HasEmbyContext]">RunScript(special://home/addons/plugin.video.emby/context.py)</onclick>
 								<onclick condition="$EXP[HasEmbyConContext]">RunPlugin(plugin://plugin.video.embycon?mode=SHOW_MENU&amp;item_id=$INFO[ListItem.Property(id)])</onclick>
 							</item>
-						</content>
+							<item>
+								<visible>!String.IsEmpty(Container(2000).ListItem.Property(good_emmys))</visible>
+								<label>Emmys</label>
+								<property name="icon">&#xf538;</property>
+								<onclick condition="!String.IsEqual(ListItem.DBType,set)">RunScript(script.embuary.helper,action=emmyviewer,header='Primetime Emmy Awards',tvdbid='$INFO[ListItem.IMDBNumber]')</onclick>
+							</item>
+					</content>
 					</control>
 					<!-- genre -->
 					<control type="group">
