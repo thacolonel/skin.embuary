@@ -6,6 +6,9 @@
 		<param name="oscar_wins"/>
 		<param name="oscar_noms"/>
 		<param name="oscar_picture"/>
+		<param name="emmy_best_show"/>
+		<param name="'emmy_wins"/>
+		<param name="emmy_noms"/>
 		<definition>
 			<control type="group">
 				<visible>!String.IsEqual(ListItem.DBType,artist) + !String.IsEqual(ListItem.DBType,album) + !String.IsEqual(ListItem.DBType,song)</visible>
@@ -21,6 +24,11 @@
 					<param name="oscar_wins" value="$PARAM[oscar_wins]"/>
 					<param name="oscar_noms" value="$PARAM[oscar_noms]"/>
 					<param name="oscar_picture" value="$PARAM[oscar_picture]"/>
+				</include>
+				<include content="EmmyOverlay">
+					<param name="emmy_wins" value="$PARAM[emmy_wins]"/>
+					<param name="emmy_noms" value="$PARAM[emmy_noms]"/>
+					<param name="emmy_best_show" value="$PARAM[emmy_best_show]"/>
 				</include>
 				<include>ListItemOverlayAddonStatus</include>
 			</control>
@@ -584,7 +592,6 @@
 		<definition>
 			<control type="group">
 				<visible>[!String.IsEmpty(Container(2000).ListItem.Property(oscar_picture)) + !Window.IsVisible(Custom_1127_Oscars.xml)] | [!String.IsEmpty(Container(2000).ListItem.Property(oscars)) | !String.IsEmpty($PARAM[oscar_wins]) | !String.IsEmpty($PARAM[oscar_noms])] + Window.IsVisible(Custom_1127_Oscars.xml) </visible>
-<!--				<visible>[!String.IsEmpty(Container(2000).ListItem.Property(oscars)) | !String.IsEmpty($PARAM[oscar_wins]) | !String.IsEmpty($PARAM[oscar_noms])] + Window.IsVisible(Custom_1127_Oscars.xml) </visible>-->
 				<visible>![Window.IsVisible(script-embuary-video.xml) | Window.IsVisible(script-embuary-person.xml)]</visible>
 				<control type="group">
 					<left>8</left>
@@ -598,7 +605,6 @@
 						<aspectratio>keep</aspectratio>
 					</control>
 					<control type="label">
-<!--						<visible>[String.IsEqual(Container(2000).ListItem.Property(oscar_picture),False) + !Window.IsVisible(Custom_1127_Oscars.xml)]</visible>-->
 						<visible>[String.IsEqual(Container(2000).ListItem.Property(oscar_picture),False) + !Window.IsVisible(Custom_1127_Oscars.xml) | !String.IsEmpty(Container(2000).ListItem.Property(oscar_category)) + String.IsEqual(Container(2000).ListItem.Property(oscar_winner),False) + Window.IsVisible(Custom_1127_Oscars.xml) | Window.IsVisible(DialogVideoInfo.xml) + String.IsEqual(Container(2000).ListItem.Property(oscar_picture),False)]</visible>
 						<top>7</top>
 						<left>1</left>
@@ -613,7 +619,6 @@
 						<aligny>top</aligny>
 					</control>
 					<control type="label">
-<!--						<visible>String.IsEqual(Container(2000).ListItem.Property(oscar_picture),True)</visible>-->
 						<visible>[String.IsEqual(Container(2000).ListItem.Property(oscar_picture),True) + !Window.IsVisible(Custom_1127_Oscars.xml) | !String.IsEmpty(Container(2000).ListItem.Property(oscar_category)) + String.IsEqual(Container(2000).ListItem.Property(oscar_winner),True) + Window.IsVisible(Custom_1127_Oscars.xml) | Window.IsVisible(DialogVideoInfo.xml) + String.IsEqual(Container(2000).ListItem.Property(oscar_picture),True)] </visible>
 						<top>7</top>
 						<left>1</left>
@@ -680,5 +685,108 @@
 			</control>
 		</definition>
 	</include>
+
+<!--	 Emmy overlay-->
+	<include name="EmmyOverlay">
+		<param name="emmy_wins"/>
+		<param name="emmy_noms"/>
+		<param name="emmy_best_show"/>
+		<definition>
+			<control type="group">
+				<visible>!String.IsEmpty(Container(2000).ListItem.Property(emmy_best_show))</visible>
+				<visible>![Window.IsVisible(script-embuary-video.xml) | Window.IsVisible(script-embuary-person.xml)]</visible>
+				<control type="group">
+					<left>8</left>
+					<top>9</top>
+					<width>44</width>
+					<height>44</height>
+					<control type="image">
+						<width>44</width>
+						<height>44</height>
+						<texture colordiffuse="black">items/bubble_small.png</texture>
+						<aspectratio>keep</aspectratio>
+					</control>
+					<control type="label">
+						<visible>[String.IsEqual(Container(2000).ListItem.Property(emmy_best_show),False) | Window.IsVisible(DialogVideoInfo.xml) + String.IsEqual(Container(2000).ListItem.Property(emmy_best_show),False)]</visible>
+						<top>7</top>
+						<left>1</left>
+						<width>44</width>
+						<height>44</height>
+						<label>&#xf538;</label>
+						<font>Material24</font>
+						<textcolor>white</textcolor>
+						<shadowcolor>text_shadow</shadowcolor>
+						<selectedcolor>white</selectedcolor>
+						<align>center</align>
+						<aligny>top</aligny>
+					</control>
+					<control type="label">
+						<visible>[String.IsEqual(Container(2000).ListItem.Property(emmy_best_show),True) | Window.IsVisible(DialogVideoInfo.xml) + String.IsEqual(Container(2000).ListItem.Property(emmy_best_show),True)] </visible>
+						<top>7</top>
+						<left>1</left>
+						<width>44</width>
+						<height>44</height>
+						<label>&#xf538;</label>
+						<font>Material24</font>
+						<textcolor>gold</textcolor>
+						<shadowcolor>text_shadow</shadowcolor>
+						<selectedcolor>white</selectedcolor>
+						<align>center</align>
+						<aligny>top</aligny>
+					</control>
+				</control>
+			</control>
+		</definition>
+	</include>
+
+		<!-- Emmy Cast overlay-->
+	<include name="EmmyCastOverlay">
+		<definition>
+			<control type="group">
+				<visible>!String.IsEmpty(ListItem.Property(emmy))</visible>
+				<control type="group">
+					<left>8</left>
+					<top>9</top>
+					<width>44</width>
+					<height>44</height>
+					<control type="image">
+						<width>44</width>
+						<height>44</height>
+						<texture colordiffuse="black">items/bubble_small.png</texture>
+						<aspectratio>keep</aspectratio>
+					</control>
+					<control type="label">
+						<visible>String.IsEqual(ListItem.Property(emmy),True)</visible>
+						<top>7</top>
+						<left>1</left>
+						<width>44</width>
+						<height>44</height>
+						<label>&#xf538;</label>
+						<font>Material24</font>
+						<textcolor>gold</textcolor>
+						<shadowcolor>text_shadow</shadowcolor>
+						<selectedcolor>gold</selectedcolor>
+						<align>center</align>
+						<aligny>top</aligny>
+					</control>
+					<control type="label">
+						<visible>String.IsEqual(ListItem.Property(emmy),False)</visible>
+						<top>7</top>
+						<left>1</left>
+						<width>44</width>
+						<height>44</height>
+						<label>&#xf538;</label>
+						<font>Material24</font>
+						<textcolor>white</textcolor>
+						<shadowcolor>text_shadow</shadowcolor>
+						<selectedcolor>white</selectedcolor>
+						<align>center</align>
+						<aligny>top</aligny>
+					</control>
+				</control>
+			</control>
+		</definition>
+	</include>
+
 
 </includes>

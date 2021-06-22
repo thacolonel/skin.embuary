@@ -386,6 +386,7 @@
 							<param name="visible_icon" value="false"/>
 						</include>
 						<include>OscarCastOverlay</include>
+						<include>EmmyCastOverlay</include>
 					</control>
 				</control>
 			</control>

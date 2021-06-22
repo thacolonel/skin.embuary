@@ -623,6 +623,9 @@
 		<param name="oscar_wins"/>
 		<param name="oscar_noms"/>
 		<param name="oscar_picture"/>
+		<param name="emmy_best_show"/>
+		<param name="emmy_wins"/>
+		<param name="emmy_noms"/>
 		<definition>
 			<control type="group">
 				<visible>$PARAM[visible]</visible>
@@ -692,6 +695,9 @@
 						<param name="oscar_wins" value="$PARAM[oscar_wins]"/>
 						<param name="oscar_wins" value="$PARAM[oscar_noms]"/>
 						<param name="oscar_picture" value="PARAM[oscar_picture]"/>
+						<param name="emmy_wins" value="$PARAM[emmy_wins]"/>
+						<param name="emmy_wins" value="$PARAM[emmy_noms]"/>
+						<param name="emmy_best_show" value="PARAM[emmy_best_show]"/>
 					</include>
 					<include content="Progress">
 						<param name="top" value="410"/>
