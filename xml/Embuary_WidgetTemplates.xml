@@ -531,7 +531,7 @@
 			<param name="widget_target" value="videos"/>
 			<param name="sortby" value="lastplayed"/>
 			<param name="sortorder" value="descending"/>
-			<param name="content" value="plugin://script.embuary.helper/?info=getinprogress&amp;reload=$INFO[Window(home).Property(EmbuaryWidgetUpdate)]"/>
+			<param name="content" value="plugin://script.embuary.helper/?info=getinprogress"/>
 		</include>
 	</include>
 	<include name="W_EmbyCon_InProgressMedia">
@@ -588,7 +588,7 @@
 			<param name="sublabel" value="$VAR[MediaSublabel]"/>
 			<param name="widget_target" value="videos"/>
 			<param name="limit" value="$VAR[WideWidgetLimit]"/>
-			<param name="content" value="plugin://script.embuary.helper/?info=getnextup&amp;reload=$INFO[Window(home).Property(EmbuaryWidgetUpdate)]"/>
+			<param name="content" value="plugin://script.embuary.helper/?info=getnextup"/>
 		</include>
 	</include>
 	<include name="W_EmbyCon_NextUp">

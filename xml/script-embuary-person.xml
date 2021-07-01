@@ -174,18 +174,6 @@
 				<param name="use_custom_content" value="false"/>
 				<param name="property_button" value="false"/>
 			</include>
-<!--			&lt;!&ndash; movies &ndash;&gt;-->
-<!--			<include content="PosterWidget">-->
-<!--				<param name="id" value="10052"/>-->
-<!--				<param name="onup" value="100"/>-->
-<!--				<param name="ondown" value="10056"/>-->
-<!--				<param name="headline" value="$LOCALIZE[342] - Acting"/>-->
-<!--				<param name="mainlabel" value="$INFO[ListItem.Label]"/>-->
-<!--				<param name="sublabel" value="$INFO[ListItem.Year]"/>-->
-<!--				<param name="visible_icon" value="false"/>-->
-<!--				<param name="use_custom_content" value="false"/>-->
-<!--				<param name="property_button" value="false"/>-->
-<!--			</include>-->
 			<!-- movie crew -->
 			<include content="PosterWidget">
 				<param name="id" value="10056"/>

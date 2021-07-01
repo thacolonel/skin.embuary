@@ -1263,11 +1263,11 @@
 					<content>
 						<item>
 							<label>All Winners</label>
-							<onclick>ActivateWindow(Videos, plugin://script.embuary.helper/?info=getoscars&amp;category=all&amp;winner=yes&amp;type=movie&amp;tag=Movies&amp;reload=$INFO[Window(home).Property(EmbuaryWidgetUpdate)],return)</onclick>
+							<onclick>ActivateWindow(Videos, plugin://script.embuary.helper/?info=getoscars&amp;category=all&amp;winner=yes&amp;type=movie&amp;tag=Movies,return)</onclick>
 						</item>
 						<item>
 							<label>All Nominees</label>
-							<onclick>ActivateWindow(Videos, plugin://script.embuary.helper/?info=getoscars&amp;category=all&amp;winner=no&amp;type=movie&amp;tag=Movies&amp;reload=$INFO[Window(home).Property(EmbuaryWidgetUpdate)],return)</onclick>
+							<onclick>ActivateWindow(Videos, plugin://script.embuary.helper/?info=getoscars&amp;category=all&amp;winner=no&amp;type=movie&amp;tag=Moviesreturn)</onclick>
 						</item>
 						<include content="$PARAM[content]">
 							<param name="nr" value="$PARAM[nr]"/>
