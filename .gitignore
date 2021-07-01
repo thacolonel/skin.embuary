@@ -1,2 +1,5 @@
 /language/resource.language.de_de/strings.mo
 /xml/script-skinshortcuts-includes.xml
+.git/
+.github/
+.idea/
