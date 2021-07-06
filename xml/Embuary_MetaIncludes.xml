@@ -231,6 +231,7 @@
 				</include>
 				<include>Imdb250</include>
 				<include>Oscars</include>
+				<include>Emmys</include>
 				<include>AFI_100</include>
 			</control>
 		</definition>
@@ -1333,9 +1334,9 @@
 						<visible>!String.IsEqual(ListItem.DBType,set) + !String.IsEqual($PARAM[type].dbtype,tvshow) + !String.IsEqual($PARAM[type].property(call),tv)</visible>
 						<visible>!String.IsEmpty($PARAM[type].Genre) | !String.IsEmpty($PARAM[type].Director)</visible>
 					</control>
-					<!--Oscar Best Director Nominee-->
+					<!--Best Director Nominee-->
 					<control type="label">
-							<visible>String.IsEqual(Container(2000).ListItem.Property(oscar_director),False)</visible>
+							<visible>String.IsEqual(Container(2000).ListItem.Property(best_director),False)</visible>
 							<width>auto</width>
 							<height>40</height>
 							<top>-5</top>
@@ -1345,9 +1346,9 @@
 							<shadowcolor>text_shadow</shadowcolor>
 							<selectedcolor>white</selectedcolor>
 					</control>
-					<!--Oscar Best Director Winner-->
+					<!--Best Director Winner-->
 					<control type="label">
-							<visible>String.IsEqual(Container(2000).ListItem.Property(oscar_director),True)</visible>
+							<visible>String.IsEqual(Container(2000).ListItem.Property(best_director),True)</visible>
 							<width>auto</width>
 							<height>40</height>
 							<top>-5</top>

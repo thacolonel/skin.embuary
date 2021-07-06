@@ -113,6 +113,12 @@
 								<property name="icon">&#xf538;</property>
 								<onclick condition="!String.IsEqual(ListItem.DBType,set)">RunScript(script.embuary.helper,action=oscarviewer,header='Academy Awards',imdbid='$INFO[ListItem.IMDBNumber]')</onclick>
 							</item>
+							<item>
+								<visible>!String.IsEmpty(Container(2000).ListItem.Property(good_emmys))</visible>
+								<label>Emmys</label>
+								<property name="icon">&#xf538;</property>
+								<onclick condition="!String.IsEqual(ListItem.DBType,set)">RunScript(script.embuary.helper,action=emmyviewer,header='Primetime Emmy Awards',tvdbid='$INFO[ListItem.IMDBNumber]',type=$INFO[ListItem.DBType])</onclick>
+							</item>
 						</content>
 					</control>
 					<!-- genre -->
@@ -338,7 +344,7 @@
 								<visible>!String.IsEmpty(Container(2000).ListItem.Property(good_emmys))</visible>
 								<label>Emmys</label>
 								<property name="icon">&#xf538;</property>
-								<onclick condition="!String.IsEqual(ListItem.DBType,set)">RunScript(script.embuary.helper,action=emmyviewer,header='Primetime Emmy Awards',tvdbid='$INFO[ListItem.IMDBNumber]')</onclick>
+								<onclick condition="!String.IsEqual(ListItem.DBType,set)">RunScript(script.embuary.helper,action=emmyviewer,header='Primetime Emmy Awards',tvdbid='$INFO[ListItem.IMDBNumber]',type=$INFO[ListItem.DBType])</onclick>
 							</item>
 					</content>
 					</control>
