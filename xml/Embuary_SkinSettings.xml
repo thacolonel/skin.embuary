@@ -956,6 +956,14 @@
 			<selected>System.HasAddon(script.metadata.editor)</selected>
 			<label>Metadata Editor</label>
 		</control>
+		<control type="radiobutton" id="$PARAM[id]10">
+			<include>SettingsButton</include>
+			<onclick condition="System.HasAddon(resource.images.studios.white)">RunScript(script.embuary.helper,action=toggleaddons,addonid=resource.images.studios.white,enable=false)</onclick>
+			<onclick condition="!System.HasAddon(resource.images.studios.white)">RunScript(script.embuary.helper,action=toggleaddons,addonid=resource.images.studios.white,enable=true)</onclick>
+			<onclick condition="!System.HasAddon(resource.images.studios.white)">InstallAddon(resource.images.studios.white)</onclick>
+			<selected>System.HasAddon(resource.images.studios.white)</selected>
+			<label>White Studio Icons</label>
+		</control>
 		<include content="SkinSettingsHeadlineLabel">
 			<param name="id" value="$PARAM[id]20"/>
 			<param name="label" value="$LOCALIZE[31001]"/>

@@ -1267,7 +1267,7 @@
 						</item>
 						<item>
 							<label>All Nominees</label>
-							<onclick>ActivateWindow(Videos, plugin://script.embuary.helper/?info=getoscars&amp;category=all&amp;winner=no&amp;type=movie&amp;tag=Moviesreturn)</onclick>
+							<onclick>ActivateWindow(Videos, plugin://script.embuary.helper/?info=getoscars&amp;category=all&amp;winner=no&amp;type=movie&amp;tag=Movies,return)</onclick>
 						</item>
 						<include content="$PARAM[content]">
 							<param name="nr" value="$PARAM[nr]"/>
@@ -1298,7 +1298,6 @@
 					<texturefocus colordiffuse="panel_focus">common/white.jpg</texturefocus>
 					<texturenofocus colordiffuse="panel_background">common/white.jpg</texturenofocus>
 					<label>Winners Only</label>
-<!--					<label>$VAR[OscarWinnersOnly]</label>-->
 					<selected>!Skin.HasSetting(OscarWinnersOnly)</selected>
 					<onclick>Skin.ToggleSetting(OscarWinnersOnly)</onclick>
 				</control>

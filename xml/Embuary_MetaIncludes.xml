@@ -248,8 +248,36 @@
 				<width>$PARAM[width]</width>
 				<itemgap>5</itemgap>
 				<orientation>horizontal</orientation>
+
+				<control type="group">
+					<width>100</width>
+    				<visible>!String.IsEqual(Control.GetLabel(2122),empty.jpg) + System.AddonIsEnabled(resource.images.studios.white)</visible>
+					<control type="image">
+						<width>100</width>
+						<height>60</height>
+						<aspectratio aligny="center">keep</aspectratio>
+						<texture colordiffuse="text_white">$VAR[StudioIcon]</texture>
+					</control>
+				</control>
 				<control type="label">
-					<label>$INFO[ListItem.Year]$VAR[TVShowStatus,  ([LOWERCASE],[/LOWERCASE])]   </label>
+					<visible>String.IsEqual(Control.GetLabel(2122),empty.jpg) + !System.AddonIsEnabled(resource.images.studios.white)</visible>
+							<label>$INFO[ListItem.Studio] </label>
+						<include content="NewMetaLabel">
+							<param name="height" value="60"/>
+						</include>
+				</control>
+				<control type="group">
+					<top>10000</top>
+					<control type="image" id="2122">
+						<width>100</width>
+						<height>60</height>
+						<aspectratio aligny="center">keep</aspectratio>
+						<texture fallback="empty.jpg">$VAR[StudioIcon]</texture>
+					</control>
+				</control>
+
+				<control type="label">
+					<label> $INFO[ListItem.Year]$VAR[TVShowStatus,  ([LOWERCASE],[/LOWERCASE])]   </label>
 					<include content="NewMetaLabel">
 						<param name="height" value="60"/>
 					</include>
@@ -1264,7 +1292,7 @@
 			<control type="button">
 				<animation effect="slide" end="0,0" time="0" condition="true">Conditional</animation>
 				<width min="24">auto</width>
-				<top>20</top>
+				<top>17</top>
 				<height>24</height>
 				<font>MpaaFont</font>
 				<label>$INFO[$PARAM[type].Mpaa]</label>
@@ -1292,7 +1320,7 @@
 			<control type="button">
 				<animation effect="slide" end="0,-2" time="0" condition="true">Conditional</animation>
 				<width min="24">auto</width>
-				<top>20</top>
+				<top>17</top>
 				<height>28</height>
 				<font>MpaaFont</font>
 				<label>CC</label>

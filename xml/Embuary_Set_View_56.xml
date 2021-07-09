@@ -24,7 +24,7 @@
 						<param name="oscar_wins" value="Container(2000).ListItem.Property(oscar_wins)"/>
 						<param name="oscar_noms" value="Container(2000).ListItem.Property(oscar_noms)"/>
 						<param name ="oscar_picture" value="Container(2000).ListItem.Property(oscar_picture)"/>
-<!--						<param name ="emmy_best_show" value="Container(2000).ListItem.Property(emmy_best_show)"/>-->
+						<param name ="emmy_best_show" value="Container(2000).ListItem.Property(emmy_best_show)"/>
 					</include>
 					<!-- meta -->
 					<control type="group">
@@ -198,7 +198,7 @@
 					<include content="JumpToLetterHorizontal">
 						<param name="top" value="48"/>
 					</include>
-					<!-- items -->
+					 items
 					<include content="PosterWidget">
 						<param name="id" value="56"/>
 						<param name="onup" value="7001"/>

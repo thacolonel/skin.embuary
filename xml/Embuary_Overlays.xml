@@ -591,7 +591,7 @@
 		<param name="oscar_picture"/>
 		<definition>
 			<control type="group">
-				<visible>[!String.IsEmpty(Container(2000).ListItem.Property(oscar_picture)) + !Window.IsVisible(Custom_1127_Oscars.xml)] | [!String.IsEmpty(Container(2000).ListItem.Property(oscars)) | !String.IsEmpty($PARAM[oscar_wins]) | !String.IsEmpty($PARAM[oscar_noms])] + Window.IsVisible(Custom_1127_Oscars.xml) </visible>
+				<visible>[!String.IsEmpty(Container(2000).ListItem.Property(oscar_picture)) + !Window.IsVisible(Custom_1127_Oscars.xml)] | [ !String.IsEmpty(Container(2000).ListItem.Property(oscars)) | !String.IsEmpty($PARAM[oscar_wins]) | !String.IsEmpty($PARAM[oscar_noms])] + Window.IsVisible(Custom_1127_Oscars.xml) </visible>
 				<visible>![Window.IsVisible(script-embuary-video.xml) | Window.IsVisible(script-embuary-person.xml)]</visible>
 				<control type="group">
 					<left>8</left>

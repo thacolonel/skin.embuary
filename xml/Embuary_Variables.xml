@@ -2123,5 +2123,8 @@
 	<variable name="EmmyCount">
 		<value condition="!String.IsEmpty(Container(2000).ListItem.Property(emmys)) + [System.HasAddon(plugin.video.emby-next-gen) | String.StartsWith(ListItem.Path,plugin://plugin.video.embycon)] + !String.IsEmpty(Container(2000).ListItem.Property(emmys))">$INFO[Container(2000).ListItem.Property(emmys)]</value>
 	</variable>
+	<variable name="StudioIcon">
+		<value>$INFO[ListItem.Studio,resource://resource.images.studios.white/,.png]</value>
+	</variable>
 
 </includes>
