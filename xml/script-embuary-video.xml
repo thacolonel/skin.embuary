@@ -217,7 +217,7 @@
 			<include content="PosterWidget">
 				<param name="id" value="10053"/>
 				<param name="onup" value="10058"/>
-				<param name="ondown" value="10054"/>
+				<param name="ondown" value="10060"/>
 				<param name="headline" value="$LOCALIZE[31021]"/>
 				<param name="mainlabel" value="$INFO[ListItem.Label]"/>
 				<param name="sublabel" value="$INFO[ListItem.Year]"/>
@@ -225,10 +225,24 @@
 				<param name="use_custom_content" value="false"/>
 				<param name="property_button" value="false"/>
 			</include>
+
+			<!-- directed by -->
+			<include content="PosterWidget">
+				<param name="id" value="10060"/>
+				<param name="onup" value="10053"/>
+				<param name="ondown" value="10054"/>
+				<param name="headline" value="Also directed by $INFO[Container(10051).ListItem.Director]"/>
+				<param name="mainlabel" value="$INFO[ListItem.Label]"/>
+				<param name="sublabel" value="$INFO[ListItem.Year]"/>
+				<param name="visible_icon" value="false"/>
+				<param name="use_custom_content" value="false"/>
+				<param name="property_button" value="false"/>
+			</include>
+
 			<!-- yt -->
 			<include content="WideWidget">
 				<param name="id" value="10054"/>
-				<param name="onup" value="10053"/>
+				<param name="onup" value="10060"/>
 				<param name="ondown" value="10055"/>
 				<param name="headline" value="YouTube"/>
 				<param name="mainlabel" value="$INFO[ListItem.Label]"/>
