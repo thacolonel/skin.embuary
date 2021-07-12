@@ -646,7 +646,7 @@
 			<param name="sublabel" value="$VAR[MediaSublabel]"/>
 			<param name="widget_target" value="videos"/>
 			<param name="limit" value="$VAR[WideWidgetLimit]"/>
-			<param name="content" value="plugin://script.embuary.helper/?info=getnewshows&amp;reload=$INFO[Window(home).Property(EmbuaryWidgetUpdate)]"/>
+			<param name="content" value="plugin://script.embuary.helper/?info=getnewshows"/>
 		</include>
 	</include>
 	<include name="W_EmbyCon_NewEpisodes">
@@ -705,7 +705,7 @@
 			<param name="widget_target" value="videos"/>
 			<param name="sortby" value="lastplayed"/>
 			<param name="sortorder" value="descending"/>
-			<param name="content" value="plugin://script.embuary.helper/?info=getinprogress&amp;type=movie&amp;reload=$INFO[Window(home).Property(EmbuaryWidgetUpdate)]"/>
+			<param name="content" value="plugin://script.embuary.helper/?info=getinprogress&amp;type=movie"/>
 		</include>
 	</include>
 	<include name="W_EmbyCon_InProgressMovies">
@@ -731,7 +731,7 @@
 			<param name="headline" value="$LOCALIZE[135]$VAR[MovieGenreLabel, - ]"/>
 			<param name="widget_target" value="videos"/>
 			<param name="sortby" value="sorttitle"/>
-			<param name="content" value="plugin://script.embuary.helper/?info=getgenre&amp;type=movie&amp;reload=$INFO[Window(home).Property(EmbuaryWidgetUpdate)]"/>
+			<param name="content" value="plugin://script.embuary.helper/?info=getgenre&amp;type=movie"/>
 		</include>
 	</include>
 	<include name="W_EmbyCon_MovieGenres">
@@ -760,7 +760,7 @@
 			<param name="limit" value="$VAR[PosterWidgetLimit]"/>
 			<param name="sortby" value="rating"/>
 			<param name="sortorder" value="descending"/>
-			<param name="content" value="videodb://movies/titles/?xsp=%7b%22rules%22%3a%7b%22and%22%3a%5b%7b%22field%22%3a%22playcount%22%2c%22operator%22%3a%22is%22%2c%22value%22%3a%5b%220%22%5d%7d%5d%7d%2c%22type%22%3a%22movies%22%7d&amp;reload=$INFO[Window(home).Property(EmbuaryWidgetUpdate)]"/>
+			<param name="content" value="videodb://movies/titles/?xsp=%7b%22rules%22%3a%7b%22and%22%3a%5b%7b%22field%22%3a%22playcount%22%2c%22operator%22%3a%22is%22%2c%22value%22%3a%5b%220%22%5d%7d%5d%7d%2c%22type%22%3a%22movies%22%7d"/>
 		</include>
 	</include>
 	<include name="W_EmbyCon_RecommendedMovies">
@@ -790,7 +790,7 @@
 			<param name="sublabel" value="$INFO[ListItem.Year]"/>
 			<param name="widget_target" value="videos"/>
 			<param name="limit" value="$VAR[PosterWidgetLimit]"/>
-			<param name="content" value="plugin://script.embuary.helper/?info=getsimilar&amp;type=movie&amp;reload=$INFO[Window(home).Property(EmbuaryWidgetUpdate)]"/>
+			<param name="content" value="plugin://script.embuary.helper/?info=getsimilar&amp;type=movie"/>
 		</include>
 	</include>
 	<include name="W_EmbyCon_SimilarMovies">
@@ -853,7 +853,7 @@
 			<param name="widget_target" value="videos"/>
 			<param name="sortby" value="lastplayed"/>
 			<param name="sortorder" value="descending"/>
-			<param name="content" value="plugin://script.embuary.helper/?info=getinprogress&amp;type=tvshow&amp;reload=$INFO[Window(home).Property(EmbuaryWidgetUpdate)]"/>
+			<param name="content" value="plugin://script.embuary.helper/?info=getinprogress&amp;type=tvshow"/>
 		</include>
 	</include>
 	<include name="W_EmbyCon_InProgressShows">
@@ -877,7 +877,7 @@
 			<param name="headline" value="$LOCALIZE[135]$VAR[TVShowGenreLabel, - ]"/>
 			<param name="sortby" value="sorttitle"/>
 			<param name="widget_target" value="videos"/>
-			<param name="content" value="plugin://script.embuary.helper/?info=getgenre&amp;type=tvshow&amp;reload=$INFO[Window(home).Property(EmbuaryWidgetUpdate)]"/>
+			<param name="content" value="plugin://script.embuary.helper/?info=getgenre&amp;type=tvshow"/>
 		</include>
 	</include>
 	<include name="W_EmbyCon_TVShowGenres">
@@ -905,7 +905,7 @@
 			<param name="sortby" value="rating"/>
 			<param name="sortorder" value="descending"/>
 			<param name="limit" value="$VAR[WideWidgetLimit]"/>
-			<param name="content" value="videodb://tvshows/titles/?xsp=%7b%22rules%22%3a%7b%22and%22%3a%5b%7b%22field%22%3a%22playcount%22%2c%22operator%22%3a%22is%22%2c%22value%22%3a%5b%220%22%5d%7d%5d%7d%2c%22type%22%3a%22tvshows%22%7d&amp;reload=$INFO[Window(home).Property(EmbuaryWidgetUpdate)]"/>
+			<param name="content" value="videodb://tvshows/titles/?xsp=%7b%22rules%22%3a%7b%22and%22%3a%5b%7b%22field%22%3a%22playcount%22%2c%22operator%22%3a%22is%22%2c%22value%22%3a%5b%220%22%5d%7d%5d%7d%2c%22type%22%3a%22tvshows%22%7d"/>
 		</include>
 	</include>
 	<include name="W_EmbyCon_RecommendedShows">
@@ -934,7 +934,7 @@
 			<param name="sublabel" value="$INFO[ListItem.Year]"/>
 			<param name="widget_target" value="videos"/>
 			<param name="limit" value="$VAR[PosterWidgetLimit]"/>
-			<param name="content" value="plugin://script.embuary.helper/?info=getsimilar&amp;type=tvshow&amp;reload=$INFO[Window(home).Property(EmbuaryWidgetUpdate)]"/>
+			<param name="content" value="plugin://script.embuary.helper/?info=getsimilar&amp;type=tvshow"/>
 		</include>
 	</include>
 	<!-- Fav shows -->
@@ -1084,7 +1084,7 @@
 			<param name="headline" value="$LOCALIZE[31278] $INFO[Container($PARAM[id]).ListItem.Property(searchstring),',']"/>
 			<param name="widget_target" value="videos"/>
 			<param name="limit" value="$VAR[PosterWidgetLimit]"/>
-			<param name="content" value="plugin://script.embuary.helper/?info=getbygenre&amp;unwatched=True&amp;type=movie&amp;reload=$INFO[Window(home).Property(EmbuaryWidgetUpdate)]"/>
+			<param name="content" value="plugin://script.embuary.helper/?info=getbygenre&amp;unwatched=True&amp;type=movie"/>
 		</include>
 	</include>
 	<!-- TV show suggestions by genre -->
@@ -1096,7 +1096,7 @@
 			<param name="headline" value="$LOCALIZE[31278] $INFO[Container($PARAM[id]).ListItem.Property(searchstring),',']"/>
 			<param name="widget_target" value="videos"/>
 			<param name="limit" value="$VAR[WideWidgetLimit]"/>
-			<param name="content" value="plugin://script.embuary.helper/?info=getbygenre&amp;unwatched=True&amp;type=tvshow&amp;reload=$INFO[Window(home).Property(EmbuaryWidgetUpdate)]"/>
+			<param name="content" value="plugin://script.embuary.helper/?info=getbygenre&amp;unwatched=True&amp;type=tvshow"/>
 		</include>
 	</include>
 
@@ -1550,7 +1550,7 @@
 			<param name="sublabel" value="$INFO[ListItem.Year]"/>
 			<param name="widget_target" value="videos"/>
 			<param name="limit" value="$VAR[PosterWidgetLimit]"/>
-			<param name="content" value="plugin://script.embuary.helper/?info=getafi100&amp;type=movie&amp;tag=Movies&amp;reload=$INFO[Window(home).Property(EmbuaryWidgetUpdate)]"/>
+			<param name="content" value="plugin://script.embuary.helper/?info=getafi100&amp;type=movie&amp;tag=Movies"/>
 		</include>
 	</include>
 	<!-- Oscar movies -->
@@ -1564,7 +1564,7 @@
 			<param name="sublabel" value="$INFO[ListItem.Year]"/>
 			<param name="widget_target" value="videos"/>
 			<param name="limit" value="$VAR[PosterWidgetLimit]"/>
-			<param name="content" value="plugin://script.embuary.helper/?info=getoscars&amp;category=best_picture&amp;type=movie&amp;tag=Movies&amp;reload=$INFO[Window(home).Property(EmbuaryWidgetUpdate)]"/>
+			<param name="content" value="plugin://script.embuary.helper/?info=getoscars&amp;category=best_picture&amp;type=movie&amp;tag=Movies"/>
 		</include>
 	</include>
 

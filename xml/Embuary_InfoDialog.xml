@@ -804,7 +804,7 @@
 				<param name="sortby" value="episode"/>
 				<param name="sortorder" value="ascending"/>
 				<param name="icon" value="$VAR[IconEpisodeThumb]"/>
-				<param name="content" value="plugin://script.embuary.helper/?info=getseasonepisodes&amp;dbid=$INFO[ListItem.DBID]&amp;idtype=episode&amp;season=$INFO[ListItem.Season]&amp;reload=$INFO[Window(home).Property(EmbuaryWidgetUpdate)]"/>
+				<param name="content" value="plugin://script.embuary.helper/?info=getseasonepisodes&amp;dbid=$INFO[ListItem.DBID]&amp;idtype=episode&amp;season=$INFO[ListItem.Season]"/>
 			</include>
 			<!-- Seasons -->
 			<include content="PosterWidget">

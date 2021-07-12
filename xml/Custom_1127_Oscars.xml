@@ -73,18 +73,6 @@
 				<param name="content" value="plugin://script.embuary.helper/?info=getoscars&amp;category=best_picture&amp;type=movie&amp;tag=Movies"/>
 			</include>
 			<include content="PosterWidget">
-				<param name="visible" value="Skin.HasSetting(OscarWinnersOnly)"/>
-				<param name="id" value="100"/>
-				<param name="onup" value="99"/>
-				<param name="ondown" value="101"/>
-				<param name="headline" value="Best Picture Nominees"/>
-				<param name="mainlabel" value="$INFO[ListItem.Title]"/>
-				<param name="sublabel" value="$INFO[ListItem.Year]"/>
-				<param name="widget_target" value="videos"/>
-				<param name="limit" value="$VAR[PosterWidgetLimit]"/>
-				<param name="content" value="plugin://script.embuary.helper/?info=getoscars&amp;category=best_picture&amp;type=movie&amp;winner=no&amp;tag=Movies"/>
-			</include>
-			<include content="PosterWidget">
 				<param name="visible" value="!Skin.HasSetting(OscarWinnersOnly)"/>
 				<param name="id" value="101"/>
 				<param name="onup" value="100"/>
@@ -96,19 +84,6 @@
 				<param name="widget_target" value="videos"/>
 				<param name="limit" value="$VAR[PosterWidgetLimit]"/>
 				<param name="content" value="plugin://script.embuary.helper/?info=getoscars&amp;category=best_actor&amp;type=movie&amp;tag=Movies"/>
-			</include>
-			<include content="PosterWidget">
-				<param name="visible" value="Skin.HasSetting(OscarWinnersOnly)"/>
-				<param name="id" value="101"/>
-				<param name="onup" value="100"/>
-				<param name="ondown" value="102"/>
-				<param name="icon" value="$INFO[ListItem.Property(actor_icon)]"/>
-				<param name="headline" value="Best Actor Nominees"/>
-				<param name="mainlabel" value="$INFO[ListItem.Property(oscar_nominee)]"/>
-				<param name="sublabel" value="$INFO[ListItem.Title] ($INFO[ListItem.Year])"/>
-				<param name="widget_target" value="videos"/>
-				<param name="limit" value="$VAR[PosterWidgetLimit]"/>
-				<param name="content" value="plugin://script.embuary.helper/?info=getoscars&amp;category=best_actor&amp;type=movie&amp;winner=no&amp;tag=Movies"/>
 			</include>
 			<include content="PosterWidget">
 				<param name="visible" value="!Skin.HasSetting(OscarWinnersOnly)"/>
@@ -124,19 +99,6 @@
 				<param name="content" value="plugin://script.embuary.helper/?info=getoscars&amp;category=best_actress&amp;type=movie&amp;tag=Movies"/>
 			</include>
 			<include content="PosterWidget">
-				<param name="visible" value="Skin.HasSetting(OscarWinnersOnly)"/>
-				<param name="id" value="102"/>
-				<param name="onup" value="101"/>
-				<param name="ondown" value="103"/>
-				<param name="headline" value="Best Actress Nominees"/>
-				<param name="icon" value="$INFO[ListItem.Property(actor_icon)]"/>
-				<param name="mainlabel" value="$INFO[ListItem.Property(oscar_nominee)]"/>
-				<param name="sublabel" value="$INFO[ListItem.Title] ($INFO[ListItem.Year])"/>
-				<param name="widget_target" value="videos"/>
-				<param name="limit" value="$VAR[PosterWidgetLimit]"/>
-				<param name="content" value="plugin://script.embuary.helper/?info=getoscars&amp;category=best_actress&amp;winner=no&amp;type=movie&amp;tag=Movies"/>
-			</include>
-			<include content="PosterWidget">
 				<param name="visible" value="!Skin.HasSetting(OscarWinnersOnly)"/>
 				<param name="id" value="103"/>
 				<param name="onup" value="102"/>
@@ -148,19 +110,6 @@
 				<param name="widget_target" value="videos"/>
 				<param name="limit" value="$VAR[PosterWidgetLimit]"/>
 				<param name="content" value="plugin://script.embuary.helper/?info=getoscars&amp;category=best_supporting_actor&amp;type=movie&amp;tag=Movies"/>
-			</include>
-			<include content="PosterWidget">
-				<param name="visible" value="Skin.HasSetting(OscarWinnersOnly)"/>
-				<param name="id" value="103"/>
-				<param name="onup" value="102"/>
-				<param name="ondown" value="104"/>
-				<param name="icon" value="$INFO[ListItem.Property(actor_icon)]"/>
-				<param name="headline" value="Best Supporting Actor Nominees"/>
-				<param name="mainlabel" value="$INFO[ListItem.Property(oscar_nominee)]"/>
-				<param name="sublabel" value="$INFO[ListItem.Title] ($INFO[ListItem.Year])"/>
-				<param name="widget_target" value="videos"/>
-				<param name="limit" value="$VAR[PosterWidgetLimit]"/>
-				<param name="content" value="plugin://script.embuary.helper/?info=getoscars&amp;category=best_supporting_actor&amp;winner=no&amp;type=movie&amp;tag=Movies"/>
 			</include>
 			<include content="PosterWidget">
 				<param name="visible" value="!Skin.HasSetting(OscarWinnersOnly)"/>
@@ -176,19 +125,6 @@
 				<param name="content" value="plugin://script.embuary.helper/?info=getoscars&amp;category=best_supporting_actress&amp;type=movie&amp;tag=Movies"/>
 			</include>
 			<include content="PosterWidget">
-				<param name="visible" value="Skin.HasSetting(OscarWinnersOnly)"/>
-				<param name="id" value="104"/>
-				<param name="onup" value="103"/>
-				<param name="ondown" value="105"/>
-				<param name="headline" value="Best Supporting Actress Nominees"/>
-				<param name="icon" value="$INFO[ListItem.Property(actor_icon)]"/>
-				<param name="mainlabel" value="$INFO[ListItem.Property(oscar_nominee)]"/>
-				<param name="sublabel" value="$INFO[ListItem.Title] ($INFO[ListItem.Year])"/>
-				<param name="widget_target" value="videos"/>
-				<param name="limit" value="$VAR[PosterWidgetLimit]"/>
-				<param name="content" value="plugin://script.embuary.helper/?info=getoscars&amp;category=best_supporting_actress&amp;winner=no&amp;type=movie&amp;tag=Movies"/>
-			</include>
-			<include content="PosterWidget">
 				<param name="visible" value="!Skin.HasSetting(OscarWinnersOnly)"/>
 				<param name="id" value="105"/>
 				<param name="onup" value="104"/>
@@ -201,6 +137,70 @@
 				<param name="content" value="plugin://script.embuary.helper/?info=getoscars&amp;category=best_director&amp;type=movie&amp;tag=Movies"/>
 			</include>
 			<include content="PosterWidget">
+				<param name="visible" value="Skin.HasSetting(OscarWinnersOnly)"/>
+				<param name="id" value="100"/>
+				<param name="onup" value="99"/>
+				<param name="ondown" value="101"/>
+				<param name="headline" value="Best Picture Nominees"/>
+				<param name="mainlabel" value="$INFO[ListItem.Title]"/>
+				<param name="sublabel" value="$INFO[ListItem.Year]"/>
+				<param name="widget_target" value="videos"/>
+				<param name="limit" value="$VAR[PosterWidgetLimit]"/>
+				<param name="content" value="plugin://script.embuary.helper/?info=getoscars&amp;category=best_picture&amp;type=movie&amp;winner=no&amp;tag=Movies"/>
+			</include>
+			<include content="PosterWidget">
+				<param name="visible" value="Skin.HasSetting(OscarWinnersOnly)"/>
+				<param name="id" value="101"/>
+				<param name="onup" value="100"/>
+				<param name="ondown" value="102"/>
+				<param name="icon" value="$INFO[ListItem.Property(actor_icon)]"/>
+				<param name="headline" value="Best Actor Nominees"/>
+				<param name="mainlabel" value="$INFO[ListItem.Property(oscar_nominee)]"/>
+				<param name="sublabel" value="$INFO[ListItem.Title] ($INFO[ListItem.Year])"/>
+				<param name="widget_target" value="videos"/>
+				<param name="limit" value="$VAR[PosterWidgetLimit]"/>
+				<param name="content" value="plugin://script.embuary.helper/?info=getoscars&amp;category=best_actor&amp;type=movie&amp;winner=no&amp;tag=Movies"/>
+			</include>
+			<include content="PosterWidget">
+				<param name="visible" value="Skin.HasSetting(OscarWinnersOnly)"/>
+				<param name="id" value="102"/>
+				<param name="onup" value="101"/>
+				<param name="ondown" value="103"/>
+				<param name="headline" value="Best Actress Nominees"/>
+				<param name="icon" value="$INFO[ListItem.Property(actor_icon)]"/>
+				<param name="mainlabel" value="$INFO[ListItem.Property(oscar_nominee)]"/>
+				<param name="sublabel" value="$INFO[ListItem.Title] ($INFO[ListItem.Year])"/>
+				<param name="widget_target" value="videos"/>
+				<param name="limit" value="$VAR[PosterWidgetLimit]"/>
+				<param name="content" value="plugin://script.embuary.helper/?info=getoscars&amp;category=best_actress&amp;winner=no&amp;type=movie&amp;tag=Movies"/>
+			</include>
+			<include content="PosterWidget">
+				<param name="visible" value="Skin.HasSetting(OscarWinnersOnly)"/>
+				<param name="id" value="103"/>
+				<param name="onup" value="102"/>
+				<param name="ondown" value="104"/>
+				<param name="icon" value="$INFO[ListItem.Property(actor_icon)]"/>
+				<param name="headline" value="Best Supporting Actor Nominees"/>
+				<param name="mainlabel" value="$INFO[ListItem.Property(oscar_nominee)]"/>
+				<param name="sublabel" value="$INFO[ListItem.Title] ($INFO[ListItem.Year])"/>
+				<param name="widget_target" value="videos"/>
+				<param name="limit" value="$VAR[PosterWidgetLimit]"/>
+				<param name="content" value="plugin://script.embuary.helper/?info=getoscars&amp;category=best_supporting_actor&amp;winner=no&amp;type=movie&amp;tag=Movies"/>
+			</include>
+			<include content="PosterWidget">
+				<param name="visible" value="Skin.HasSetting(OscarWinnersOnly)"/>
+				<param name="id" value="104"/>
+				<param name="onup" value="103"/>
+				<param name="ondown" value="105"/>
+				<param name="headline" value="Best Supporting Actress Nominees"/>
+				<param name="icon" value="$INFO[ListItem.Property(actor_icon)]"/>
+				<param name="mainlabel" value="$INFO[ListItem.Property(oscar_nominee)]"/>
+				<param name="sublabel" value="$INFO[ListItem.Title] ($INFO[ListItem.Year])"/>
+				<param name="widget_target" value="videos"/>
+				<param name="limit" value="$VAR[PosterWidgetLimit]"/>
+				<param name="content" value="plugin://script.embuary.helper/?info=getoscars&amp;category=best_supporting_actress&amp;winner=no&amp;type=movie&amp;tag=Movies"/>
+			</include>
+				<include content="PosterWidget">
 				<param name="visible" value="Skin.HasSetting(OscarWinnersOnly)"/>
 				<param name="id" value="105"/>
 				<param name="onup" value="104"/>

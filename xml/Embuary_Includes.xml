@@ -684,7 +684,7 @@
 							<param name="id" value="$PARAM[id]"/>
 						</include>
 					</focusedlayout>
-					<content>plugin://script.embuary.helper/?info=jumptoletter&amp;showall=false&amp;reload=$INFO[Container.NumItems]</content>
+					<content>plugin://script.embuary.helper/?info=jumptoletter&amp;showall=true</content>
 				</control>
 			</control>
 		</definition>
