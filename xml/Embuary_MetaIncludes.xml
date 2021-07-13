@@ -84,7 +84,7 @@
 					<textcolor>text_sublabel</textcolor>
 					<include>MetaLabel</include>
 					<label>$INFO[ListItem.LastPlayed,Last played: ]   </label>
-					<visible>!String.IsEmpty(ListItem.LastPlayed) + !String.IsEqual(ListItem.DBType,tvshow)</visible>
+					<visible>!String.IsEmpty(ListItem.LastPlayed)</visible>
 				</control>
 			</control>
 		</definition>
@@ -253,8 +253,9 @@
 					<width>100</width>
     				<visible>!String.IsEqual(Control.GetLabel(2122),empty.jpg) + System.AddonIsEnabled(resource.images.studios.white)</visible>
 					<control type="image">
+						<top>5</top>
 						<width>100</width>
-						<height>60</height>
+						<height>50</height>
 						<aspectratio aligny="center">keep</aspectratio>
 						<texture colordiffuse="text_white">$VAR[StudioIcon]</texture>
 					</control>
@@ -270,7 +271,7 @@
 					<top>10000</top>
 					<control type="image" id="2122">
 						<width>100</width>
-						<height>60</height>
+						<height>0</height>
 						<aspectratio aligny="center">keep</aspectratio>
 						<texture fallback="empty.jpg">$VAR[StudioIcon]</texture>
 					</control>

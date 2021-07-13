@@ -1298,7 +1298,7 @@
 					<texturefocus colordiffuse="panel_focus">common/white.jpg</texturefocus>
 					<texturenofocus colordiffuse="panel_background">common/white.jpg</texturenofocus>
 					<label>Winners Only</label>
-					<selected>!Skin.HasSetting(OscarWinnersOnly)</selected>
+					<selected>Skin.HasSetting(OscarWinnersOnly)</selected>
 					<onclick>Skin.ToggleSetting(OscarWinnersOnly)</onclick>
 				</control>
 		</definition>

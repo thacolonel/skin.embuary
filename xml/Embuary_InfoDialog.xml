@@ -260,7 +260,7 @@
 					</control>
 					<!-- meta -->
 					<control type="group">
-						<top>60</top>
+						<top>70</top>
 						<right>440</right>
 						<height>40</height>
 						<include>MetaShowInfos</include>
