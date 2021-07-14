@@ -130,6 +130,7 @@
 				<param name="onup" value="104"/>
 				<param name="ondown" value="106"/>
 				<param name="headline" value="Best Director Winners"/>
+				<param name="icon" value="$INFO[ListItem.Property(director_icon)]"/>
 				<param name="mainlabel" value="$INFO[ListItem.Director]"/>
 				<param name="sublabel" value="$INFO[ListItem.Title] ($INFO[ListItem.Year])"/>
 				<param name="widget_target" value="videos"/>
@@ -206,6 +207,7 @@
 				<param name="onup" value="104"/>
 				<param name="ondown" value="noop"/>
 				<param name="headline" value="Best Director Nominees"/>
+				<param name="icon" value="$INFO[ListItem.Property(director_icon)]"/>
 				<param name="mainlabel" value="$INFO[ListItem.Director]"/>
 				<param name="sublabel" value="$INFO[ListItem.Title] ($INFO[ListItem.Year])"/>
 				<param name="widget_target" value="videos"/>
