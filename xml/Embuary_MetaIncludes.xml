@@ -1266,7 +1266,7 @@
 				<aspectratio>keep</aspectratio>
 				<visible>
 					[
-					[System.HasAddon(plugin.video.emby-next-gen) | System.HasAddon(plugin.video.embycon)] + !String.IsEmpty($PARAM[type].UserRating) + !Skin.HasSetting(DisableEmbyUserRating)
+					System.HasAddon(plugin.video.emby-next-gen) + !String.IsEmpty($PARAM[type].UserRating) + !Skin.HasSetting(DisableEmbyUserRating)
 					]
 					| !String.IsEmpty(ListItem.Rating(tomatometerallcritics))
 					| !String.IsEmpty(Container(2003).ListItem.Rating(tomatometerallcritics))
@@ -1279,7 +1279,7 @@
 				</include>
 				<visible>
 					[
-					[System.HasAddon(plugin.video.emby-next-gen) | System.HasAddon(plugin.video.embycon)] + !String.IsEmpty($PARAM[type].UserRating) + !Skin.HasSetting(DisableEmbyUserRating)
+					System.HasAddon(plugin.video.emby-next-gen) + !String.IsEmpty($PARAM[type].UserRating) + !Skin.HasSetting(DisableEmbyUserRating)
 					]
 					| !String.IsEmpty(ListItem.Rating(tomatometerallcritics))
 					| !String.IsEmpty(Container(2003).ListItem.Rating(tomatometerallcritics))
@@ -1551,10 +1551,9 @@
 				<width>25</width>
 				<height>50</height>
 				<texture>$VAR[OscarIcon]</texture>
-<!--				<aspectratio>keep</aspectratio>-->
 				<visible>
 					[
-					[System.HasAddon(plugin.video.emby-next-gen) | System.HasAddon(plugin.video.embycon)] + !String.IsEmpty(Container(2000).ListItem.Property(oscars))
+					System.HasAddon(plugin.video.emby-next-gen)+ !String.IsEmpty(Container(2000).ListItem.Property(oscars))
 					]
 				</visible>
 			</control>
@@ -1565,7 +1564,7 @@
 				</include>
 				<visible>
 					[
-					[System.HasAddon(plugin.video.emby-next-gen) | System.HasAddon(plugin.video.embycon)] + !String.IsEmpty(Container(2000).ListItem.Property(oscars))
+					System.HasAddon(plugin.video.emby-next-gen) + !String.IsEmpty(Container(2000).ListItem.Property(oscars))
 					]
 				</visible>
 			</control>
@@ -1584,7 +1583,7 @@
 				<aspectratio>keep</aspectratio>
 				<visible>
 					[
-					[System.HasAddon(plugin.video.emby-next-gen) | System.HasAddon(plugin.video.embycon)] + !String.IsEmpty(Container(2000).ListItem.Property(AFI_100))
+					System.HasAddon(plugin.video.emby-next-gen) + !String.IsEmpty(Container(2000).ListItem.Property(AFI_100))
 					]
 				</visible>
 			</control>
@@ -1595,7 +1594,7 @@
 				</include>
 				<visible>
 					[
-					[System.HasAddon(plugin.video.emby-next-gen) | System.HasAddon(plugin.video.embycon)] + !String.IsEmpty(Container(2000).ListItem.Property(AFI_100))
+					System.HasAddon(plugin.video.emby-next-gen) + !String.IsEmpty(Container(2000).ListItem.Property(AFI_100))
 					]
 				</visible>
 			</control>
@@ -1614,7 +1613,7 @@
 				<aspectratio>keep</aspectratio>
 				<visible>
 					[
-					[System.HasAddon(plugin.video.emby-next-gen) | System.HasAddon(plugin.video.embycon)] + !String.IsEmpty(ListItem.Top250)
+					System.HasAddon(plugin.video.emby-next-gen) + !String.IsEmpty(ListItem.Top250)
 					]
 				</visible>
 			</control>
@@ -1625,7 +1624,7 @@
 				</include>
 				<visible>
 					[
-					[System.HasAddon(plugin.video.emby-next-gen) | System.HasAddon(plugin.video.embycon)] + !String.IsEmpty(ListItem.Top250)
+					System.HasAddon(plugin.video.emby-next-gen) + !String.IsEmpty(ListItem.Top250)
 					]
 				</visible>
 			</control>
@@ -1641,10 +1640,9 @@
 				<width>25</width>
 				<height>50</height>
 				<texture>$VAR[EmmyIcon]</texture>
-<!--				<aspectratio>keep</aspectratio>-->
 				<visible>
 					[
-					[System.HasAddon(plugin.video.emby-next-gen) | System.HasAddon(plugin.video.embycon)] + !String.IsEmpty(Container(2000).ListItem.Property(emmys))
+					System.HasAddon(plugin.video.emby-next-gen) + !String.IsEmpty(Container(2000).ListItem.Property(emmys))
 					]
 				</visible>
 			</control>
@@ -1655,7 +1653,7 @@
 				</include>
 				<visible>
 					[
-					[System.HasAddon(plugin.video.emby-next-gen) | System.HasAddon(plugin.video.embycon)] + !String.IsEmpty(Container(2000).ListItem.Property(emmys))
+					System.HasAddon(plugin.video.emby-next-gen) + !String.IsEmpty(Container(2000).ListItem.Property(emmys))
 					]
 				</visible>
 			</control>

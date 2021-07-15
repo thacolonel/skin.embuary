@@ -2126,5 +2126,8 @@
 	<variable name="StudioIcon">
 		<value>$INFO[ListItem.Studio,resource://resource.images.studios.white/,.png]</value>
 	</variable>
+	<variable name="GenreIcon">
+		<value>$INFO[ListItem.Label,resource://resource.images.moviegenreicons.white/,.jpg]</value>
+	</variable>
 
 </includes>
