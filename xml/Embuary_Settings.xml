@@ -198,12 +198,6 @@
 				<visible>System.HasAddon(plugin.video.emby-next-gen)</visible>
 			</item>
 			<item>
-				<label>$INFO[System.AddonTitle(plugin.video.embycon)]</label>
-				<label2>&#xf6b3;</label2>
-				<onclick>Addon.OpenSettings(plugin.video.embycon)</onclick>
-				<visible>System.HasAddon(plugin.video.embycon)</visible>
-			</item>
-			<item>
 				<label>$INFO[System.AddonTitle(script.viewmaster)]</label>
 				<label2>&#xf56c;</label2>
 				<onclick>RunScript(script.viewmaster)</onclick>

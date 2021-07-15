@@ -147,15 +147,6 @@
 						<include condition="String.IsEqual(Window(home).Property(SelectorContent),TagMixedHubWidgets)" content="PositionSelectorItems">
 							<param name="type" value="tagmixedhub"/>
 						</include>
-						<include condition="String.IsEqual(Window(home).Property(SelectorContent),EmbyConMovieHubWidgets)" content="PositionSelectorItems">
-							<param name="type" value="embyconmoviehub"/>
-						</include>
-						<include condition="String.IsEqual(Window(home).Property(SelectorContent),EmbyConTVShowHubWidgets)" content="PositionSelectorItems">
-							<param name="type" value="embycontvshowhub"/>
-						</include>
-						<include condition="String.IsEqual(Window(home).Property(SelectorContent),EmbyConMusicHubWidgets)" content="PositionSelectorItems">
-							<param name="type" value="embyconmusichub"/>
-						</include>
 						<include condition="String.IsEqual(Window(home).Property(SelectorContent),CustomHubWidgets)" content="PositionSelectorItems">
 							<param name="type" value="customhub"/>
 						</include>
@@ -310,9 +301,6 @@
 						<onclick condition="String.IsEqual(Window(home).Property(SelectorContent),TagMovieHubWidgets)">SetProperty(TagMovieHubWidgetsReset,1,home)</onclick>
 						<onclick condition="String.IsEqual(Window(home).Property(SelectorContent),TagTVShowHubWidgets)">SetProperty(TagTVShowHubWidgetsReset,1,home)</onclick>
 						<onclick condition="String.IsEqual(Window(home).Property(SelectorContent),TagMixedHubWidgets)">SetProperty(TagMixedHubWidgetsReset,1,home)</onclick>
-						<onclick condition="String.IsEqual(Window(home).Property(SelectorContent),EmbyConMovieHubWidgets)">SetProperty(EmbyConMovieHubWidgetsReset,1,home)</onclick>
-						<onclick condition="String.IsEqual(Window(home).Property(SelectorContent),EmbyConTVShowHubWidgets)">SetProperty(EmbyConTVShowHubWidgetsReset,1,home)</onclick>
-						<onclick condition="String.IsEqual(Window(home).Property(SelectorContent),EmbyConMusicHubWidgets)">SetProperty(EmbyConMusicHubWidgetsReset,1,home)</onclick>
 						<onclick condition="String.IsEqual(Window(home).Property(SelectorContent),CustomHubWidgets)">SetProperty(CustomHubWidgetsReset,1,home)</onclick>
 						<onclick>ActivateWindow(1112)</onclick>
 						<onclick>AlarmClock(restorewidgets,ActivateWindow(1110),00:01,silent)</onclick>

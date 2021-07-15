@@ -242,12 +242,6 @@
 					<include>SettingsButton</include>
 					<visible>ControlGroup(1000).HasFocus(95) + System.HasAddon(plugin.video.emby-next-gen)</visible>
 				</control>
-				<control type="button">
-					<label>EmbyCon $INFO[System.AddonVersion(plugin.video.embycon)]</label>
-					<font>Reg22_monofied</font>
-					<include>SettingsButton</include>
-					<visible>ControlGroup(1000).HasFocus(95) + System.HasAddon(plugin.video.embycon)</visible>
-				</control>
 				<!-- CPU and memory bar -->
 				<include content="SkinSettingsHeadlineLabel">
 					<param name="label" value="$LOCALIZE[565]"/>

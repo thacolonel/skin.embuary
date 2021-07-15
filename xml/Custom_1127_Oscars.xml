@@ -25,6 +25,8 @@
 	<onload condition="!String.IsEmpty(Window(home).Property(ForceFocusReset)) + Integer.IsGreater(Container(100).NumItems,0)">SetFocus(100)</onload>
 	<onload condition="!String.IsEmpty(Window(home).Property(ForceFocusReset)) + !Integer.IsGreater(Container(100).NumItems,0) + Integer.IsGreater(Container(101).NumItems,0)">SetFocus(101)</onload>
 	<onload condition="!String.IsEmpty(Window(home).Property(ForceFocusReset)) + !Integer.IsGreater(Container(100).NumItems,0) + !Integer.IsGreater(Container(101).NumItems,0) + Integer.IsGreater(Container(102).NumItems,0)">SetFocus(102)</onload>
+	<onunload>Skin.Reset(OscarWinnersOnly)</onunload>
+	<onunload>Skin.ToggleSetting(OscarWinnersOnly)</onunload>
 	<controls>
 		<!-- background -->
 		<include>Background</include>
@@ -60,7 +62,7 @@
 					<param name="headline">$LOCALIZE[31284]</param>
 				</include>
 			</control>
-						<include content="PosterWidget">
+			<include content="PosterWidget">
 				<param name="visible" value="Skin.HasSetting(OscarWinnersOnly)"/>
 				<param name="id" value="100"/>
 				<param name="onup" value="99"/>
@@ -219,11 +221,6 @@
 		<include content="HeaderBar">
 			<param name="id">10</param>
 		</include>
-		<!-- busy spinner -->
-<!--		<include content="CustomBusySpinner">-->
-<!--			<param name="diffuse" value="false"/>-->
-<!--			<param name="visible" value="![!Container(100).IsUpdating + !Container(101).IsUpdating + !Container(102).IsUpdating + !Container(103).IsUpdating + !Container(104).IsUpdating + !Container(105).IsUpdating | !String.IsEmpty(Window(home).Property(ForceFocusReset))"/>-->
-<!--		</include>-->
 		<!-- side panel -->
 		<include content="SidePanel"/>
 	</controls>
