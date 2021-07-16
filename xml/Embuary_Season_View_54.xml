@@ -213,11 +213,22 @@
 				<param name="onclick" value="RunScript(script.embuary.helper,action=playitem,item='$ESCINFO[ListItem.Filenameandpath]')"/>
 				<param name="content" value="$VAR[View54_NextUp_Content]"/>
 			</include>
-			<!-- Cast -->
+			<!-- Guest -->
 			<include content="CastWidget">
-				<param name="visible" value="Integer.IsGreater(Container(2000).NumItems,0)"/>
+				<param name="visible" value="Integer.IsGreater(Container(2004).NumItems,0)"/>
+				<param name="headline" value="Guest Stars"/>
+				<param name="sublabel"/>
 				<param name="id" value="202"/>
 				<param name="onup" value="201"/>
+				<param name="ondown" value="203"/>
+				<param name="onback" value="54"/>
+				<param name="content" value="$VAR[View_Guest_Content]"/>
+			</include>
+				<!-- Cast -->
+			<include content="CastWidget">
+				<param name="visible" value="Integer.IsGreater(Container(2000).NumItems,0)"/>
+				<param name="id" value="203"/>
+				<param name="onup" value="202"/>
 				<param name="ondown" value="noop"/>
 				<param name="onback" value="54"/>
 				<param name="content" value="$VAR[View_Cast_Content]"/>

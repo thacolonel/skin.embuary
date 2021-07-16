@@ -27,6 +27,16 @@
 			<include>HiddenObject</include>
 			<content limit="1">$VAR[View54_NextUp_Content]</content>
 		</control>
+		<control type="list" id="2003">
+			<visible>Control.IsVisible(55) + Container.Content(episodes)</visible>
+			<include>HiddenObject</include>
+			<content limit="1">$VAR[View_Cast_Content]</content>
+		</control>
+			<control type="list" id="2004">
+			<visible>Control.IsVisible(54) + Container.Content(seasons)</visible>
+			<include>HiddenObject</include>
+			<content limit="1">$VAR[View_Guest_Content]</content>
+		</control>
 		<!-- background -->
 		<include>Background</include>
 		<!-- views -->
